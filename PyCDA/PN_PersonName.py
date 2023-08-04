@@ -1,12 +1,12 @@
 from STRUCTURE_UTILS.exceptions import InvalidGivenValue
 import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component import Component
+from STRUCTURE_UTILS.Component_Model import Component_Model
 
 from ST_String import ST_String
 from IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
 
-class PN_PersonName(Component):
-    """PN_PersonName"""    
+class PN_PersonName(Component_Model):
+    """PN_PersonName"""
     def __init__(self, name: str, data: dict):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
@@ -18,7 +18,7 @@ class PN_PersonName(Component):
 
     @classmethod
     def as_dict(cls):
-        """as_dict"""        
+        """as_dict"""
         return {
             "family"   : ST_String.as_dict(),
             "given"    : ST_String.as_dict(),

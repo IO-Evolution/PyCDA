@@ -1,6 +1,6 @@
 from STRUCTURE_UTILS.exceptions import InvalidGivenValue
 import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component import Component
+from STRUCTURE_UTILS.Component_Model import Component_Model
 
 from CS_CodedSimpleValue import CS_CodedSimpleValue
 from II_InstanceIdentifier import II_InstanceIdentifier
@@ -10,8 +10,8 @@ from InfrastructureRootTypeId import InfrastructureRootTypeId
 from Patient import Patient
 from Organization import Organization
 
-class PatientRole(Component):
-    """PatientRole"""    
+class PatientRole(Component_Model):
+    """PatientRole"""
     def __init__(self, name: str, data: dict):
         self.name                 = name
         self.realmCode            = Element.Component(CS_CodedSimpleValue, "realmCode", data)
@@ -26,7 +26,7 @@ class PatientRole(Component):
 
     @classmethod
     def as_dict(cls):
-        """as_dict"""        
+        """as_dict"""
         return {
             "realmCode" : CS_CodedSimpleValue.as_dict(),
             "typeId"    : InfrastructureRootTypeId.as_dict(),

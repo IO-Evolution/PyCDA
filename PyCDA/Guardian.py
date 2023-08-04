@@ -1,6 +1,6 @@
 from STRUCTURE_UTILS.exceptions import InvalidGivenValue
 import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component import Component
+from STRUCTURE_UTILS.Component_Model import Component_Model
 
 from CS_CodedSimpleValue import CS_CodedSimpleValue
 from InfrastructureRootTypeId import InfrastructureRootTypeId
@@ -11,8 +11,8 @@ from TEL_TelecomincationAddress import TEL_TelecomincationAddress
 from Person import Person
 from Organization import Organization
 
-class Guardian(Component):
-    """Guardian"""    
+class Guardian(Component_Model):
+    """Guardian"""
     def __init__(self, name: str, data: dict):
         self.realmCode            = Element.Component()
         self.typeId               = Element.Component()
@@ -27,7 +27,7 @@ class Guardian(Component):
 
     @classmethod
     def as_dict(cls):
-        """as_dict"""        
+        """as_dict"""
         return {
             "realmCode"           : CS_CodedSimpleValue.as_dict(),
             "typeId"              : InfrastructureRootTypeId.as_dict(),

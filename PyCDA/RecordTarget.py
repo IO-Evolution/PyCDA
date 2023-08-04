@@ -1,14 +1,14 @@
 from STRUCTURE_UTILS.exceptions import InvalidGivenValue
 import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component import Component
+from STRUCTURE_UTILS.Component_Model import Component_Model
 
 from CS_CodedSimpleValue import CS_CodedSimpleValue
 from InfrastructureRootTypeId import InfrastructureRootTypeId
 from II_InstanceIdentifier import II_InstanceIdentifier
 from PatientRole import PatientRole
 
-class RecordTarget(Component):
-    """RecordTarget"""    
+class RecordTarget(Component_Model):
+    """RecordTarget"""
     def __init__(self, name: str, data: dict):
         self.name = name
 
@@ -21,7 +21,7 @@ class RecordTarget(Component):
 
     @classmethod
     def as_dict(cls):
-        """as_dict"""        
+        """as_dict"""
         return {
             "relamCode"         : CS_CodedSimpleValue.as_dict(),
             "typeId"            : InfrastructureRootTypeId.as_dict(),
@@ -30,3 +30,4 @@ class RecordTarget(Component):
             "typeCode"          : "",
             "contectControlCode": ""
         }
+    

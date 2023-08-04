@@ -1,8 +1,8 @@
 from STRUCTURE_UTILS.exceptions import InvalidGivenValue
 import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component import Component
+from STRUCTURE_UTILS.Component_Model import Component_Model
 
-class Act(Component):
+class Act(Component_Model):
     """Act"""
     def __init__(self, name: str, data: dict):
         pass

@@ -1,6 +1,6 @@
 # from STRUCTURE_UTILS.exceptions import InvalidGivenValue
 import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component import Component
+from STRUCTURE_UTILS.Component_Model import Component_Model
 
 from CS_CodedSimpleValue import CS_CodedSimpleValue
 from InfrastructureRootTypeId import InfrastructureRootTypeId
@@ -23,7 +23,7 @@ from Authorization import Authorization
 from Component1 import Component1
 from Component2 import Component2
 
-class ClinicalDocument(Component):
+class ClinicalDocument(Component_Model):
     """ClinicalDocument"""
     def __init__(self, name: str, data: dict):
         self.name                 = name

@@ -1,5 +1,5 @@
 import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component import Component
+from STRUCTURE_UTILS.Component_Model import Component_Model
 
 from CS_CodedSimpleValue import CS_CodedSimpleValue
 from InfrastructureRootTypeId import InfrastructureRootTypeId
@@ -11,9 +11,10 @@ from Guardian import Guardian
 from BirthPlace import BirthPlace
 from LanguageCommunication import LanguageCommunication
 
-class Patient(Component):
+class Patient(Component_Model):
     """Patient"""
     def __init__(self, name: str, data: dict):
+        self.name                     = name
         self.realmCode                = Element.Component(CS_CodedSimpleValue, "realmCode", data)
         self.typeId                   = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
         self.templateId               = Element.Component(II_InstanceIdentifier, "templateId", data)
@@ -33,7 +34,7 @@ class Patient(Component):
 
     @classmethod
     def as_dict(cls):
-        """as_dict"""        
+        """as_dict"""
         return {
             "realmCode"               : CS_CodedSimpleValue.as_dict(),
             "typeId"                  : InfrastructureRootTypeId.as_dict(),

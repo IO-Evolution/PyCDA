@@ -1,19 +1,19 @@
 from STRUCTURE_UTILS.exceptions import InvalidGivenValue
 import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component import Component
+from STRUCTURE_UTILS.Component_Model import Component_Model
 
 from IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
 
-class TEL_TelecomincationAddress(Component):
+class TEL_TelecomincationAddress(Component_Model):
     """TEL_TelecomincationAddress"""
     def __init__(self, name: str, data: dict):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
 
-        self.name = name
-
-        self.value = Element.Attribute("value", data, required=True)
-        self.use = Element.Attribute("use", data)
+        self.name          = name
+        self.value         = Element.Attribute("value", data, required=True)
+        self.use           = Element.Attribute("use", data)
+        self.useablePeriod = Element.Component(IVL_TS_IntervalOfTime, "useablePeriod", data, as_list=False)
 
         """
             value:
@@ -27,13 +27,13 @@ class TEL_TelecomincationAddress(Component):
             MC: mobile phone
         """
 
-        self.useablePeriod = Element.Component(IVL_TS_IntervalOfTime, "useablePeriod", data, as_list=False)
 
     @classmethod
     def as_dict(cls):
-        """as_dict"""        
+        """as_dict"""
         return {
-            "value": "",
-            "use": "",
+            "value"        : "",
+            "use"          : "",
             "useablePeriod": IVL_TS_IntervalOfTime.as_dict()
         }
+    

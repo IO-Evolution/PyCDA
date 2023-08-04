@@ -1,14 +1,14 @@
 from STRUCTURE_UTILS.exceptions import InvalidGivenValue
 import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component import Component
+from STRUCTURE_UTILS.Component_Model import Component_Model
 
-class Organizer(Component):
-    """Organizer"""    
+class Organizer(Component_Model):
+    """Organizer"""
     def __init__(self, name: str, data: dict):
         pass
 
     @classmethod
     def as_dict(cls):
-        """as_dict"""        
+        """as_dict"""
         return {}
     
