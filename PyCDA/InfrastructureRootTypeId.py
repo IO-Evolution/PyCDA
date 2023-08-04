@@ -1,7 +1,3 @@
-from STRUCTURE_UTILS.exceptions import InvalidGivenValue
-import STRUCTURE_UTILS.elements as Element
-from STRUCTURE_UTILS.Component_Model import Component_Model
-
 from II_InstanceIdentifier import II_InstanceIdentifier
 
 class InfrastructureRootTypeId(II_InstanceIdentifier):

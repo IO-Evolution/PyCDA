@@ -1,11 +1,12 @@
 """Component Class Model"""
 from abc import ABC, abstractmethod
 
-class Component_Model(ABC):
+class Component_Model:
     """Component_Model"""
-    name: str
+    name : str
     value: str
 
+    @classmethod
     @abstractmethod
-    def to_dict(self):
+    def as_dict(cls):
         """to_dict"""
