@@ -23,7 +23,7 @@ class RecordTarget(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "relamCode"         : CS_CodedSimpleValue.to_dict(),
+            "realmCode"         : CS_CodedSimpleValue.to_dict(),
             "typeId"            : InfrastructureRootTypeId.to_dict(),
             "templateId"        : II_InstanceIdentifier.to_dict(),
             "patientRole"       : PatientRole.to_dict(),
