@@ -1,4 +1,3 @@
-from ..Core.Exceptions import InvalidGivenValue
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
 
@@ -11,20 +10,22 @@ from .TEL_TelecomincationAddress import TEL_TelecomincationAddress
 from .Person import Person
 from .Organization import Organization
 
+
 class Guardian(Component_Model):
     """Guardian"""
+
     def __init__(self, name: str, data: dict):
-        # self.realmCode            = Element.Component()
-        # self.typeId               = Element.Component()
-        # self.templateId           = Element.Component()
-        # self.id                   = Element.Component()
-        # self.code                 = Element.Component()
-        # self.addr                 = Element.Component()
-        # self.telecom              = Element.Component()
-        # self.guardianPerson       = Element.Component()
-        # self.guardianOrganization = Element.Component()
-        # self.classCode            = Element.Attribute()
-        pass
+        self.name = name
+        self.realmCode            = Element.Component(CS_CodedSimpleValue, "realmCode", data)
+        self.typeId               = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
+        self.templateId           = Element.Component(II_InstanceIdentifier, "templateId", data)
+        self.id                   = Element.Component(II_InstanceIdentifier, "id", data)
+        self.code                 = Element.Component(CE_CodedWithEquivalents, "code", data, as_list=False)
+        self.addr                 = Element.Component(AD_PostalAddress, "addr", data)
+        self.telecom              = Element.Component(TEL_TelecomincationAddress, "telecom", data)
+        self.guardianPerson       = Element.Component(Person, "guardianPerson", data, as_list=False)
+        self.guardianOrganization = Element.Component(Organization, "guardianOrganization", data, as_list=False)
+        self.classCode            = Element.Attribute("classCode", data)
 
     @classmethod
     def to_dict(cls):
@@ -41,4 +42,3 @@ class Guardian(Component_Model):
             "guardianOrganization": Organization.to_dict(),
             "classCode"           : ""
         }
-    
