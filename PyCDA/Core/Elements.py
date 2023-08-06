@@ -2,9 +2,10 @@
 """CDA Component Utils"""
 from .Exceptions import InvalidGivenValue, InvalidGivenSubelementData
 
+
 class Attribute:
     """ XML Attributes Class """
-    def __new__(cls, name: str, data: dict, required: bool = False, fixed: str = '') -> str|None:
+    def __new__(cls, name: str, data: dict, required: bool = False, fixed: str = '') -> str | None:
         try:
             if not fixed:
                 return data[name]
@@ -37,7 +38,7 @@ class Component:
             #     else:
             #         if type(data[name]) == list and as_list:
             #             raise InvalidGivenSubelementData(f"{name} of type {className.__class__} can't be listed")
-            #         else:  
+            #         else:
             #             raise InvalidGivenSubelementData(f"{name} of type {className.__class__} must be dict or list")
         except Exception as error:
             if required:
