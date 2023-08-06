@@ -6,8 +6,11 @@ from .InfrastructureRootTypeId import InfrastructureRootTypeId
 from .II_InstanceIdentifier import II_InstanceIdentifier
 from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
 from .IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
-from .Organization import Organization
 
+# IMPORT CIRCOLARI
+import sys
+if "PyCDA.Components.Organization" not in sys.modules:
+    from .Organization import Organization
 
 class OrganizationPartOf(Component_Model):
     """OrganizationPartOf"""

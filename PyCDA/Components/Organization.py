@@ -8,7 +8,11 @@ from .ON_OrganisationName import ON_OrganisationName
 from .TEL_TelecomincationAddress import TEL_TelecomincationAddress
 from .AD_PostalAddress import AD_PostalAddress
 from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
-from .OrganizationPartOf import OrganizationPartOf
+
+# IMPORT CIRCOLARI
+import sys
+if "PyCDA.Components.OrganizationPartOf" not in sys.modules:
+    from .OrganizationPartOf import OrganizationPartOf
 
 
 class Organization(Component_Model):
