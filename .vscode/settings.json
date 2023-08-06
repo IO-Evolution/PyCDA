@@ -10,6 +10,17 @@
     "python.testing.unittestEnabled": true,
     "autoDocstring.docstringFormat": "google",
     "autoDocstring.customTemplatePath": "./.vscode/easydoc.mustache",
-    "python.formatting.provider": "autopep8",
-    "python.formatting.autopep8Args": ["--max-line-length", "250"],
+    "python.formatting.provider": "none",
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "250"
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "pylint.args": [
+        "--disable=invalid-name",
+        "--disable=line-too-long",
+        "--disable=missing-module-docstring",
+    ]
 }

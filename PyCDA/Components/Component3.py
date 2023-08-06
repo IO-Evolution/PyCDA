@@ -1,0 +1,13 @@
+from ..Core.Exceptions import InvalidGivenValue
+from ..Core import Elements as Element
+from ..Core.Component_Model import Component_Model
+
+class Component3(Component_Model):
+    """Component3"""
+    def __init__(self, name: str, data: dict):
+        pass
+
+    @classmethod
+    def to_dict(cls):
+        """to_dict"""        
+        return {}
