@@ -25,7 +25,7 @@ class Guardian(Component_Model):
         self.telecom              = Element.Component(TEL_TelecomincationAddress, "telecom", data)
         self.guardianPerson       = Element.Component(Person, "guardianPerson", data, as_list=False)
         self.guardianOrganization = Element.Component(Organization, "guardianOrganization", data, as_list=False)
-        self.classCode            = Element.Attribute("classCode", data)
+        self.classCode            = Element.Attribute("classCode", data, fixed="GUARD")
 
     @classmethod
     def to_dict(cls):
