@@ -5,7 +5,7 @@ from ..Core.Component_Model import Component_Model
 from .ST_String import ST_String
 from .IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
 
-class AD_PostalAddress(Component_Model):
+class EN_GenericName(Component_Model):
     """AD"""
     def __init__(self, name: str, data: dict):
         if not data or data is None:
