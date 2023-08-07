@@ -44,7 +44,7 @@ class Organization(Component_Model):
             "telecom"                  : TEL_TelecomincationAddress.to_dict(),
             "addr"                     : AD_PostalAddress.to_dict(),
             "standardIndustryClassCode": CE_CodedWithEquivalents.to_dict(),
-            "asOrganizationPartOf"     : "OrganizationPartOf.to_dict()",
+            "asOrganizationPartOf"     : "RICORSIONE",
             "classCode"                : "ORG",
             "determinerCode"           : "INSTANCE"
         }

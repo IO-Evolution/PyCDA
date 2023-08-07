@@ -17,7 +17,7 @@ class RecordTarget(Component_Model):
         self.templateId         = Element.Component(II_InstanceIdentifier, "templateId", data)
         self.patientRole        = Element.Component(PatientRole, "patientRole", data, required=True, as_list=False)
         self.typeCode           = Element.Attribute("typeCode", data, fixed="RCT")
-        self.contextControlCode = Element.Attribute("contextControlCOde", data, fixed="OP")
+        self.contextControlCode = Element.Attribute("contextControlCode", data, fixed="OP")
 
     @classmethod
     def to_dict(cls):

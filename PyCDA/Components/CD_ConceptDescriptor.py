@@ -22,11 +22,11 @@ class CD_ConceptDescriptor(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "code"            : "",
-            "codeSystem"      : "",
-            "codeSysteVersion": "",
-            "displayName"     : "",
-            "originalText"    : ST_String.to_dict(),
-            "translaction"    : "RECURSIVE",
-            "qualifier"       : ""
+            "code"             : "",
+            "codeSystem"       : "",
+            "codeSystemVersion": "",
+            "displayName"      : "",
+            "originalText"     : ST_String.to_dict(),
+            "translaction"     : "RECURSIVE",
+            "qualifier"        : ""
         }

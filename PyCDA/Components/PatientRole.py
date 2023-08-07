@@ -20,7 +20,7 @@ class PatientRole(Component_Model):
         self.id                   = Element.Component(II_InstanceIdentifier, "id", data, required=True)
         self.addr                 = Element.Component(AD_PostalAddress, "addr", data)
         self.telecom              = Element.Component(TEL_TelecomincationAddress, "telecom", data)
-        self.patient              = Element.Component(Patient, "patinet", data, as_list=False)
+        self.patient              = Element.Component(Patient, "patient", data, as_list=False)
         self.providerOrganization = Element.Component(Organization, "providerOrganization", data, as_list=False)
         self.classCode            = Element.Attribute("classCode", data, fixed="PAT")
 
@@ -28,12 +28,14 @@ class PatientRole(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode" : CS_CodedSimpleValue.to_dict(),
-            "typeId"    : InfrastructureRootTypeId.to_dict(),
+            "realmCode": CS_CodedSimpleValue.to_dict(),
+            "typeId": InfrastructureRootTypeId.to_dict(),
             "templateId": II_InstanceIdentifier.to_dict(),
-            "id"        : II_InstanceIdentifier.to_dict(),
-            "addr"      : AD_PostalAddress.to_dict(),
-            "telecom"   : TEL_TelecomincationAddress.to_dict(),
-            "classCode" : ""
+            "id": II_InstanceIdentifier.to_dict(),
+            "addr": AD_PostalAddress.to_dict(),
+            "telecom": TEL_TelecomincationAddress.to_dict(),
+            "patient": Patient.to_dict(),
+            "providerOrganization": Organization.to_dict(),
+            "classCode": "PAT"
         }
     

@@ -26,7 +26,7 @@ class AD_PostalAddress(Component_Model):
         """to_dict"""
         return {
             "use"             : "",
-            "steedAddressLine": ST_String.to_dict(),
+            "streetAddressLine": ST_String.to_dict(),
             "city"            : ST_String.to_dict(),
             "postalCode"      : ST_String.to_dict(),
             "country"         : ST_String.to_dict(),

@@ -21,9 +21,12 @@ from .RelatedDocument import RelatedDocument
 from .Authorization import Authorization
 from .Component1 import Component1
 from .Component2 import Component2
+from .Informant12 import Informant12
+from .Participant1 import Participant1
 
 class ClinicalDocument(Component_Model):
     """ClinicalDocument"""
+
     def __init__(self, name: str, data: dict):
         self.name                 = name
         self.realmCode            = Element.Component(CS_CodedSimpleValue, "realmCode", data)
@@ -41,36 +44,52 @@ class ClinicalDocument(Component_Model):
         self.recordTarget         = Element.Component(RecordTarget, "recordTarget", data, required=True)
         self.author               = Element.Component(Author, "author", data, required=True)
         self.dataEnterer          = Element.Component(DataEnterer, "dataEnterer", data, as_list=False)
-      # self.informant            = Element.Component(Informant, "informant", data)
+        self.informant            = Element.Component(Informant12, "informant", data)
         self.custodian            = Element.Component(Custodian, "custodian", data, required=True, as_list=False)
         self.informationRecipient = Element.Component(InformationRecipient, "informationRecipient", data)
         self.legalAuthenticator   = Element.Component(LegalAuthenticator, "legalAuthenticator", data, as_list=False)
         self.authenticator        = Element.Component(Authenticator, "authenticator", data)
-      # self.participant          = Element.Component(Participant, "participant", data)
+        self.participant          = Element.Component(Participant1, "participant", data)
         self.inFulfillmentOf      = Element.Component(InFulfillmentOf, "inFulfillmentOf", data)
         self.documentationOf      = Element.Component(DocumentationOf, "documentationOf", data)
         self.relatedDocument      = Element.Component(RelatedDocument, "relatedDocument", data)
         self.authorization        = Element.Component(Authorization, "authorization", data)
         self.componentOf          = Element.Component(Component1, "componentOf", data, as_list=False)
         self.component            = Element.Component(Component2, "component", data, required=True, as_list=False)
-      # self.classCode            = Element.Component(ActClinicalDocument, "classCode", data, as_list=False)
-      # self.moodCode             = Element.Component(ActMood, "moodCode", data, as_list=False)
+        self.classCode            = Element.Attribute("classCode", data, fixed="DOCCLIN")
+        self.moodCode             = Element.Attribute("moodCode", data, fixed="EVN")
 
     @classmethod
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"          : CS_CodedSimpleValue.to_dict(),
-            "typeId"             : InfrastructureRootTypeId.to_dict(),
-            "templateId"         : II_InstanceIdentifier.to_dict(),
-            "id"                 : II_InstanceIdentifier.to_dict(),
-            "code"               : CE_CodedWithEquivalents.to_dict(),
-            "title"              : ST_String.to_dict(),
-            "effectiveTime"      : TS_PointInTime.to_dict(),
-            "confidentialityCode": CE_CodedWithEquivalents.to_dict(),
-            "languageCode"       : CS_CodedSimpleValue.to_dict(),
-            "setId"              : II_InstanceIdentifier.to_dict(),
-            "versionNumber"      : INT_IntegerNumber.to_dict(),
-            "copyTime"           : TS_PointInTime.to_dict(),
-            "recordTarget"       : RecordTarget.to_dict()
+            "realmCode"           : CS_CodedSimpleValue.to_dict(),
+            "typeId"              : InfrastructureRootTypeId.to_dict(),
+            "templateId"          : II_InstanceIdentifier.to_dict(),
+            "id"                  : II_InstanceIdentifier.to_dict(),
+            "code"                : CE_CodedWithEquivalents.to_dict(),
+            "title"               : ST_String.to_dict(),
+            "effectiveTime"       : TS_PointInTime.to_dict(),
+            "confidentialityCode" : CE_CodedWithEquivalents.to_dict(),
+            "languageCode"        : CS_CodedSimpleValue.to_dict(),
+            "setId"               : II_InstanceIdentifier.to_dict(),
+            "versionNumber"       : INT_IntegerNumber.to_dict(),
+            "copyTime"            : TS_PointInTime.to_dict(),
+            "recordTarget"        : RecordTarget.to_dict(),
+            "author"              : Author.to_dict(),
+            "dataEnterer"         : DataEnterer.to_dict(),
+            "informant"           : Informant12.to_dict(),
+            "custodian"           : Custodian.to_dict(),
+            "informationRecipient": InformationRecipient.to_dict(),
+            "legalAuthenticator"  : LegalAuthenticator.to_dict(),
+            "authenticator"       : Authenticator.to_dict(),
+            "participant"         : Participant1.to_dict(),
+            "inFulfillmentOf"     : InFulfillmentOf.to_dict(),
+            "documentationOf"     : DocumentationOf.to_dict(),
+            "relatedDocument"     : RelatedDocument.to_dict(),
+            "authorization"       : Authorization.to_dict(),
+            "componentOf"         : Component1.to_dict(),
+            "component"           : Component2.to_dict(),
+            "classCode"           : "DOCCLIN",
+            "moodCode"            : "EVN"
         }

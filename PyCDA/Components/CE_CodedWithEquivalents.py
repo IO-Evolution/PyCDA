@@ -25,7 +25,7 @@ class CE_CodedWithEquivalents(Component_Model):
         return {
             "code"            : "",
             "codeSystem"      : "",
-            "codeSysteVersion": "",
+            "codeSystemVersion": "",
             "displayName"     : "",
             "originalText"    : ST_String.to_dict(),
             "translaction"    : CD_ConceptDescriptor.to_dict()
