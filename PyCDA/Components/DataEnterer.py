@@ -1,13 +1,35 @@
-from ..Core.Exceptions import InvalidGivenValue
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
 
+from .CS_CodedSimpleValue import CS_CodedSimpleValue
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
+from .II_InstanceIdentifier import II_InstanceIdentifier
+from .TS_PointInTime import TS_PointInTime
+from .AssignedEntity import AssignedEntity
+
+
 class DataEnterer(Component_Model):
     """DataEnterer"""
+
     def __init__(self, name: str, data: dict):
-        pass
+        self.name               = name
+        self.realmCode          = Element.Component(CS_CodedSimpleValue, "realmCode", data)
+        self.typeId             = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
+        self.templateId         = Element.Component(II_InstanceIdentifier, "templateId", data)
+        self.time               = Element.Component(TS_PointInTime, "time", data, as_list=False)
+        self.assignedEntity     = Element.Component(AssignedEntity, "assignedEntity", data, required=True, as_list=False)
+        self.contextControlCode = Element.Attribute("contextControlCode", data, fixed="OP")
+        self.typeCode           = Element.Attribute("typeCode", data, fixed="ENT")
 
     @classmethod
     def to_dict(cls):
         """to_dict"""
-        return {}
+        return {
+            "realmCode"         : CS_CodedSimpleValue.to_dict(),
+            "typeId"            : InfrastructureRootTypeId.to_dict(),
+            "templateId"        : II_InstanceIdentifier.to_dict(),
+            "time"              : TS_PointInTime.to_dict(),
+            "assignedEntity"    : AssignedEntity.to_dict(),
+            "contextControlCode": "OP",
+            "typeCode"          : "ENT"
+        }
