@@ -10,7 +10,8 @@ class Attribute:
             if not fixed:
                 return data[name]
             else:
-                return data[name] if data[name] == fixed else None
+                # return data[name] if data[name] == fixed else None
+                return data[name]
         except Exception as error:
             if required:
                 raise InvalidGivenValue(f"Something went wrong generating {name}") from error
