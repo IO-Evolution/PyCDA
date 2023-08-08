@@ -25,11 +25,16 @@ class Informant12(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"         : CS_CodedSimpleValue.to_dict(),
-            "typeId"            : InfrastructureRootTypeId.to_dict(),
-            "templateId"        : II_InstanceIdentifier.to_dict(),
-            "assignedEntity"    : AssignedEntity.to_dict(),
-            "relatedEntity"     : RelatedEntity.to_dict(),
+            "realmCode"         : CS_CodedSimpleValue.to_dict_req(),
+            "typeId"            : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"        : II_InstanceIdentifier.to_dict_req(),
+            "assignedEntity"    : AssignedEntity.to_dict_req(),
+            "relatedEntity"     : RelatedEntity.to_dict_req(),
             "contextControlCode": "OP",
             "typeCode"          : "INF"
         }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

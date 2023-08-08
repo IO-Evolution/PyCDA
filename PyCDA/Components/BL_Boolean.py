@@ -2,8 +2,10 @@ from ..Core.Exceptions import InvalidGivenValue
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
 
+
 class BL_Boolean(Component_Model):
     """BL_Boolean"""
+
     def __init__(self, name: str, data):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
@@ -13,6 +15,13 @@ class BL_Boolean(Component_Model):
 
     @classmethod
     def to_dict(cls):
+        """to_dict"""
+        return {
+            "value": ""
+        }
+
+    @classmethod
+    def to_dict_req(cls):
         """to_dict"""
         return {
             "value": ""

@@ -4,11 +4,14 @@ from ..Core.Component_Model import Component_Model
 
 from .INT_IntegerNumber import INT_IntegerNumber
 
+
 class IVL_PQ_IntervalOfPhysicalQuantities(Component_Model):
     """IVL_PQ_IntervalOfPhysicalQuantities"""
+
     def __init__(self, name: str, data: dict):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
+
         self.name   = name
         self.low    = Element.Component(INT_IntegerNumber, "low", data)
         self.high   = Element.Component(INT_IntegerNumber, "high", data)
@@ -18,8 +21,12 @@ class IVL_PQ_IntervalOfPhysicalQuantities(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "low"   : INT_IntegerNumber.to_dict(),
-            "high"  : INT_IntegerNumber.to_dict(),
-            "center": INT_IntegerNumber.to_dict()
+            "low"   : INT_IntegerNumber.to_dict_req(),
+            "high"  : INT_IntegerNumber.to_dict_req(),
+            "center": INT_IntegerNumber.to_dict_req()
         }
-    
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

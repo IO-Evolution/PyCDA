@@ -23,10 +23,15 @@ class Person(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"     : CS_CodedSimpleValue.to_dict(),
-            "typeId"        : InfrastructureRootTypeId.to_dict(),
-            "templateId"    : II_InstanceIdentifier.to_dict(),
-            "name"          : PN_PersonName.to_dict(),
-            "classCode"     : "PSN",
-            "determinerCode": "INSTANCE"
+            "realmCode"     : CS_CodedSimpleValue.to_dict_req(),
+            "typeId"        : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"    : II_InstanceIdentifier.to_dict_req(),
+            "name"          : PN_PersonName.to_dict_req(),
+            "classCode"     : "",
+            "determinerCode": ""
         }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

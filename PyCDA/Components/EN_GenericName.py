@@ -5,8 +5,10 @@ from ..Core.Component_Model import Component_Model
 from .ST_String import ST_String
 from .IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
 
+
 class EN_GenericName(Component_Model):
     """AD"""
+
     def __init__(self, name: str, data: dict):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
@@ -29,11 +31,15 @@ class EN_GenericName(Component_Model):
         """to_dict"""
         return {
             "use"      : "",
-            "delimiter": ST_String.to_dict(),
-            "family"   : ST_String.to_dict(),
-            "given"    : ST_String.to_dict(),
-            "prefix"   : ST_String.to_dict(),
-            "suffix"   : ST_String.to_dict(),
-            "validTime": IVL_TS_IntervalOfTime.to_dict()
+            "delimiter": ST_String.to_dict_req(),
+            "family"   : ST_String.to_dict_req(),
+            "given"    : ST_String.to_dict_req(),
+            "prefix"   : ST_String.to_dict_req(),
+            "suffix"   : ST_String.to_dict_req(),
+            "validTime": IVL_TS_IntervalOfTime.to_dict_req()
         }
 
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

@@ -4,11 +4,14 @@ from ..Core.Component_Model import Component_Model
 
 from .ST_String import ST_String
 
+
 class CD_ConceptDescriptor(Component_Model):
     """CD_ConceptDescriptor"""
+
     def __init__(self, name: str, data: dict):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
+
         self.name              = name
         self.code              = Element.Attribute("code", data, required=True)
         self.codeSystem        = Element.Attribute("codeSystem", data, required=True)
@@ -26,7 +29,15 @@ class CD_ConceptDescriptor(Component_Model):
             "codeSystem"       : "",
             "codeSystemVersion": "",
             "displayName"      : "",
-            "originalText"     : ST_String.to_dict(),
-            "translaction"     : "RECURSIVE",
+            "originalText"     : ST_String.to_dict_req(),
+            "translaction"     : "CD_ConceptDescriptor rec",
             "qualifier"        : ""
+        }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {
+            "code"      : "",
+            "codeSystem": ""
         }

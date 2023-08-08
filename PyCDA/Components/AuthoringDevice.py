@@ -26,15 +26,20 @@ class AuthoringDevice(Component_Model):
 
     @classmethod
     def to_dict(cls):
-        """to_string"""
+        """to_dict"""
         return {
-            "realmCode"            : CS_CodedSimpleValue.to_dict(),
-            "typeId"               : InfrastructureRootTypeId.to_dict(),
-            "templateId"           : II_InstanceIdentifier.to_dict(),
-            "code"                 : CE_CodedWithEquivalents.to_dict(),
-            "manufacturerModelName": SC_StringCode.to_dict(),
-            "softwareName"         : SC_StringCode.to_dict(),
-            "asMaintainedEntity"   : MaintainedEntity.to_dict(),
+            "realmCode"            : CS_CodedSimpleValue.to_dict_req(),
+            "typeId"               : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"           : II_InstanceIdentifier.to_dict_req(),
+            "code"                 : CE_CodedWithEquivalents.to_dict_req(),
+            "manufacturerModelName": SC_StringCode.to_dict_req(),
+            "softwareName"         : SC_StringCode.to_dict_req(),
+            "asMaintainedEntity"   : MaintainedEntity.to_dict_req(),
             "classCode"            : "DEV",
             "determinerCode"       : "INSTANCE"
         }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

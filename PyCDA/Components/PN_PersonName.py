@@ -5,23 +5,32 @@ from ..Core.Component_Model import Component_Model
 from .ST_String import ST_String
 from .IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
 
+
 class PN_PersonName(Component_Model):
     """PN_PersonName"""
+
     def __init__(self, name: str, data: dict):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
 
         self.name      = name
-        self.given     = Element.Component(ST_String, "given", data)
-        self.family    = Element.Component(ST_String, "family", data)
+        self.given     = Element.Component(ST_String, "given", data, required=True)
+        self.family    = Element.Component(ST_String, "family", data, required=True)
         self.validTime = Element.Component(IVL_TS_IntervalOfTime, "validTime", data)
 
     @classmethod
     def to_dict(cls):
         """to_dict"""
         return {
-            "family"   : ST_String.to_dict(),
-            "given"    : ST_String.to_dict(),
-            "validTime": IVL_TS_IntervalOfTime.to_dict()
+            "given"    : ST_String.to_dict_req(),
+            "family"   : ST_String.to_dict_req(),
+            "validTime": IVL_TS_IntervalOfTime.to_dict_req()
         }
-    
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {
+            "given" : ST_String.to_dict_req(),
+            "family": ST_String.to_dict_req()
+        }

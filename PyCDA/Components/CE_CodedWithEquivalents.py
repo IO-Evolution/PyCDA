@@ -5,8 +5,10 @@ from ..Core.Component_Model import Component_Model
 from .ST_String import ST_String
 from .CD_ConceptDescriptor import CD_ConceptDescriptor
 
+
 class CE_CodedWithEquivalents(Component_Model):
     """CE_CodedWithEquivalents"""
+
     def __init__(self, name: str, data: dict):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
@@ -23,10 +25,18 @@ class CE_CodedWithEquivalents(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "code"            : "",
-            "codeSystem"      : "",
+            "code"             : "",
+            "codeSystem"       : "",
             "codeSystemVersion": "",
-            "displayName"     : "",
-            "originalText"    : ST_String.to_dict(),
-            "translaction"    : CD_ConceptDescriptor.to_dict()
+            "displayName"      : "",
+            "originalText"     : ST_String.to_dict_req(),
+            "translaction"     : CD_ConceptDescriptor.to_dict_req()
+        }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {
+            "code"      : "",
+            "codeSystem": ""
         }

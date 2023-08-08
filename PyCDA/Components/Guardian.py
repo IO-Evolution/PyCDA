@@ -15,7 +15,7 @@ class Guardian(Component_Model):
     """Guardian"""
 
     def __init__(self, name: str, data: dict):
-        self.name = name
+        self.name                 = name
         self.realmCode            = Element.Component(CS_CodedSimpleValue, "realmCode", data)
         self.typeId               = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
         self.templateId           = Element.Component(II_InstanceIdentifier, "templateId", data)
@@ -31,14 +31,19 @@ class Guardian(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"           : CS_CodedSimpleValue.to_dict(),
-            "typeId"              : InfrastructureRootTypeId.to_dict(),
-            "templateId"          : II_InstanceIdentifier.to_dict(),
-            "id"                  : II_InstanceIdentifier.to_dict(),
-            "code"                : CE_CodedWithEquivalents.to_dict(),
-            "addr"                : AD_PostalAddress.to_dict(),
-            "telecom"             : TEL_TelecomincationAddress.to_dict(),
-            "guardianPerson"      : Person.to_dict(),
-            "guardianOrganization": Organization.to_dict(),
-            "classCode"           : ""
+            "realmCode"           : CS_CodedSimpleValue.to_dict_req(),
+            "typeId"              : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"          : II_InstanceIdentifier.to_dict_req(),
+            "id"                  : II_InstanceIdentifier.to_dict_req(),
+            "code"                : CE_CodedWithEquivalents.to_dict_req(),
+            "addr"                : AD_PostalAddress.to_dict_req(),
+            "telecom"             : TEL_TelecomincationAddress.to_dict_req(),
+            "guardianPerson"      : Person.to_dict_req(),
+            "guardianOrganization": Organization.to_dict_req(),
+            "classCode"           : "GUARD"
         }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

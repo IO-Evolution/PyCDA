@@ -18,3 +18,8 @@ class II_InstanceIdentifier(Component_Model):
             "root"     : "",
             "extension": ""
         }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

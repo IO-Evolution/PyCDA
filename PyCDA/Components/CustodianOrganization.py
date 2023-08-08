@@ -8,6 +8,7 @@ from .ON_OrganisationName import ON_OrganisationName
 from .TEL_TelecomincationAddress import TEL_TelecomincationAddress
 from .AD_PostalAddress import AD_PostalAddress
 
+
 class CustodianOrganization(Component_Model):
     """CustodianOrganization"""
 
@@ -27,13 +28,20 @@ class CustodianOrganization(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"     : CS_CodedSimpleValue.to_dict(),
-            "typeId"        : InfrastructureRootTypeId.to_dict(),
-            "templateId"    : II_InstanceIdentifier.to_dict(),
-            "id"            : II_InstanceIdentifier.to_dict(),
-            "name"          : ON_OrganisationName.to_dict(),
-            "telecom"       : TEL_TelecomincationAddress.to_dict(),
-            "addr"          : AD_PostalAddress.to_dict(),
+            "realmCode"     : CS_CodedSimpleValue.to_dict_req(),
+            "typeId"        : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"    : II_InstanceIdentifier.to_dict_req(),
+            "id"            : II_InstanceIdentifier.to_dict_req(),
+            "name"          : ON_OrganisationName.to_dict_req(),
+            "telecom"       : TEL_TelecomincationAddress.to_dict_req(),
+            "addr"          : AD_PostalAddress.to_dict_req(),
             "classCode"     : "ORG",
             "determinerCode": "INSTANCE"
+        }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {
+            "id": II_InstanceIdentifier.to_dict_req()
         }

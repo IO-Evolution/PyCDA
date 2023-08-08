@@ -4,8 +4,10 @@ from ..Core.Component_Model import Component_Model
 
 from .ST_String import ST_String
 
+
 class CV_CodedValue(Component_Model):
     """CV_CodedValue"""
+
     def __init__(self, name: str, data: dict):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
@@ -21,9 +23,17 @@ class CV_CodedValue(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "code"            : "",
-            "codeSystem"      : "",
-            "codeSysteVersion": "",
-            "displayName"     : "",
-            "originalText"    : ST_String.to_dict()
+            "code"             : "",
+            "codeSystem"       : "",
+            "codeSystemVersion": "",
+            "displayName"      : "",
+            "originalText"     : ST_String.to_dict_req()
+        }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {
+            "code"      : "",
+            "codeSystem": ""
         }

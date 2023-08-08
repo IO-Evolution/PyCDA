@@ -11,8 +11,10 @@ from .Guardian import Guardian
 from .BirthPlace import BirthPlace
 from .LanguageCommunication import LanguageCommunication
 
+
 class Patient(Component_Model):
     """Patient"""
+
     def __init__(self, name: str, data: dict):
         self.name                     = name
         self.realmCode                = Element.Component(CS_CodedSimpleValue, "realmCode", data)
@@ -36,20 +38,25 @@ class Patient(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"               : CS_CodedSimpleValue.to_dict(),
-            "typeId"                  : InfrastructureRootTypeId.to_dict(),
-            "templateId"              : II_InstanceIdentifier.to_dict(),
-            "id"                      : II_InstanceIdentifier.to_dict(),
-            "name"                    : PN_PersonName.to_dict(),
-            "administrativeGenderCode": CE_CodedWithEquivalents.to_dict(),
-            "birthTime"               : TS_PointInTime.to_dict(),
-            "maritalStatusCode"       : CE_CodedWithEquivalents.to_dict(),
-            "religiousAfflitionCode"  : CE_CodedWithEquivalents.to_dict(),
-            "raceCode"                : CE_CodedWithEquivalents.to_dict(),
-            "ethnicGroupCode"         : CE_CodedWithEquivalents.to_dict(),
-            "guardian"                : Guardian.to_dict(),
-            "birthplace"              : BirthPlace.to_dict(),
-            "languageCommunication"   : LanguageCommunication.to_dict(),
+            "realmCode"               : CS_CodedSimpleValue.to_dict_req(),
+            "typeId"                  : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"              : II_InstanceIdentifier.to_dict_req(),
+            "id"                      : II_InstanceIdentifier.to_dict_req(),
+            "name"                    : PN_PersonName.to_dict_req(),
+            "administrativeGenderCode": CE_CodedWithEquivalents.to_dict_req(),
+            "birthTime"               : TS_PointInTime.to_dict_req(),
+            "maritalStatusCode"       : CE_CodedWithEquivalents.to_dict_req(),
+            "religiousAfflitionCode"  : CE_CodedWithEquivalents.to_dict_req(),
+            "raceCode"                : CE_CodedWithEquivalents.to_dict_req(),
+            "ethnicGroupCode"         : CE_CodedWithEquivalents.to_dict_req(),
+            "guardian"                : Guardian.to_dict_req(),
+            "birthplace"              : BirthPlace.to_dict_req(),
+            "languageCommunication"   : LanguageCommunication.to_dict_req(),
             "classCode"               : "",
             "determinerCode"          : ""
         }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

@@ -4,8 +4,10 @@ from ..Core.Component_Model import Component_Model
 
 from .ST_String import ST_String
 
+
 class AD_PostalAddress(Component_Model):
     """AD"""
+
     def __init__(self, name: str, data: dict):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
@@ -25,9 +27,14 @@ class AD_PostalAddress(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "use"             : "",
-            "streetAddressLine": ST_String.to_dict(),
-            "city"            : ST_String.to_dict(),
-            "postalCode"      : ST_String.to_dict(),
-            "country"         : ST_String.to_dict(),
+            "use"              : "",
+            "streetAddressLine": ST_String.to_dict_req(),
+            "city"             : ST_String.to_dict_req(),
+            "postalCode"       : ST_String.to_dict_req(),
+            "country"          : ST_String.to_dict_req()
         }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

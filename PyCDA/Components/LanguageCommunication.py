@@ -25,11 +25,16 @@ class LanguageCommunication(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"           : CS_CodedSimpleValue.to_dict(),
-            "typeId"              : InfrastructureRootTypeId.to_dict(),
-            "templateId"          : II_InstanceIdentifier.to_dict(),
-            "languageCode"        : CS_CodedSimpleValue.to_dict(),
-            "modeCode"            : CE_CodedWithEquivalents.to_dict(),
-            "proficiencyLevelCode": CE_CodedWithEquivalents.to_dict(),
-            "preferenceInd"       : BL_Boolean.to_dict()
+            "realmCode"           : CS_CodedSimpleValue.to_dict_req(),
+            "typeId"              : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"          : II_InstanceIdentifier.to_dict_req(),
+            "languageCode"        : CS_CodedSimpleValue.to_dict_req(),
+            "modeCode"            : CE_CodedWithEquivalents.to_dict_req(),
+            "proficiencyLevelCode": CE_CodedWithEquivalents.to_dict_req(),
+            "preferenceInd"       : BL_Boolean.to_dict_req()
         }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {}

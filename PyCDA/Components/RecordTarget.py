@@ -1,4 +1,3 @@
-from ..Core.Exceptions import InvalidGivenValue
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
 
@@ -7,8 +6,10 @@ from .InfrastructureRootTypeId import InfrastructureRootTypeId
 from .II_InstanceIdentifier import II_InstanceIdentifier
 from .PatientRole import PatientRole
 
+
 class RecordTarget(Component_Model):
     """RecordTarget"""
+
     def __init__(self, name: str, data: dict):
         self.name = name
 
@@ -23,11 +24,17 @@ class RecordTarget(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"         : CS_CodedSimpleValue.to_dict(),
-            "typeId"            : InfrastructureRootTypeId.to_dict(),
-            "templateId"        : II_InstanceIdentifier.to_dict(),
-            "patientRole"       : PatientRole.to_dict(),
+            "realmCode"         : CS_CodedSimpleValue.to_dict_req(),
+            "typeId"            : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"        : II_InstanceIdentifier.to_dict_req(),
+            "patientRole"       : PatientRole.to_dict_req(),
             "typeCode"          : "",
-            "contectControlCode": ""
+            "contextControlCode": ""
         }
-    
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {
+            "patientRole": PatientRole.to_dict_req()
+        }

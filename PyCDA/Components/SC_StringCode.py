@@ -26,10 +26,17 @@ class SC_StringCode(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
+            "text"             : "",
             "code"             : "",
             "codeSystem"       : "",
             "codeSystemName"   : "",
             "codeSystemVersion": "",
-            "displayName"      : "",
-            "text"             : "",
+            "displayName"      : ""
+        }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {
+            "text": ""
         }

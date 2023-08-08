@@ -31,14 +31,21 @@ class AssignedEntity(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"              : CS_CodedSimpleValue.to_dict(),
-            "typeId"                 : InfrastructureRootTypeId.to_dict(),
-            "templateId"             : II_InstanceIdentifier.to_dict(),
-            "id"                     : II_InstanceIdentifier.to_dict(),
-            "code"                   : CE_CodedWithEquivalents.to_dict(),
-            "addr"                   : AD_PostalAddress.to_dict(),
-            "telecom"                : TEL_TelecomincationAddress.to_dict(),
-            "assignedPerson"         : Person.to_dict(),
-            "representedOrganization": Organization.to_dict(),
+            "realmCode"              : CS_CodedSimpleValue.to_dict_req(),
+            "typeId"                 : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"             : II_InstanceIdentifier.to_dict_req(),
+            "id"                     : II_InstanceIdentifier.to_dict_req(),
+            "code"                   : CE_CodedWithEquivalents.to_dict_req(),
+            "addr"                   : AD_PostalAddress.to_dict_req(),
+            "telecom"                : TEL_TelecomincationAddress.to_dict_req(),
+            "assignedPerson"         : Person.to_dict_req(),
+            "representedOrganization": Organization.to_dict_req(),
             "classCode"              : "ASSIGNED"
+        }
+
+    @classmethod
+    def to_dict_req(cls):
+        """to_dict"""
+        return {
+            "id": II_InstanceIdentifier.to_dict_req()
         }
