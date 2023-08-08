@@ -27,7 +27,7 @@ class CV_CodedValue(Component_Model):
             "codeSystem"       : "",
             "codeSystemVersion": "",
             "displayName"      : "",
-            "originalText"     : ST_String.to_dict_req()
+            "originalText"     : ST_String.to_dict()
         }
 
     @classmethod

@@ -28,13 +28,17 @@ class AD_PostalAddress(Component_Model):
         """to_dict"""
         return {
             "use"              : "",
-            "streetAddressLine": ST_String.to_dict_req(),
-            "city"             : ST_String.to_dict_req(),
-            "postalCode"       : ST_String.to_dict_req(),
-            "country"          : ST_String.to_dict_req()
+            "streetAddressLine": ST_String.to_dict(),
+            "city"             : ST_String.to_dict(),
+            "postalCode"       : ST_String.to_dict(),
+            "country"          : ST_String.to_dict()
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "streetAddressLine": ST_String.to_dict_req(),
+            "city"             : ST_String.to_dict_req(),
+            "postalCode"       : ST_String.to_dict_req()
+        }

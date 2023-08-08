@@ -31,15 +31,18 @@ class EN_GenericName(Component_Model):
         """to_dict"""
         return {
             "use"      : "",
-            "delimiter": ST_String.to_dict_req(),
-            "family"   : ST_String.to_dict_req(),
-            "given"    : ST_String.to_dict_req(),
-            "prefix"   : ST_String.to_dict_req(),
-            "suffix"   : ST_String.to_dict_req(),
-            "validTime": IVL_TS_IntervalOfTime.to_dict_req()
+            "delimiter": ST_String.to_dict(),
+            "family"   : ST_String.to_dict(),
+            "given"    : ST_String.to_dict(),
+            "prefix"   : ST_String.to_dict(),
+            "suffix"   : ST_String.to_dict(),
+            "validTime": IVL_TS_IntervalOfTime.to_dict()
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "family": ST_String.to_dict_req(),
+            "given" : ST_String.to_dict_req()
+        }

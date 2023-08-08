@@ -32,4 +32,6 @@ class RTO_QTY_QTY_RatioOfQuantities(Component_Model):
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "numerator": PQ_PhysicalQuantities.to_dict_req()
+        }

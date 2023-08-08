@@ -32,18 +32,21 @@ class OrganizationPartOf(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"        : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"           : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"       : II_InstanceIdentifier.to_dict_req(),
-            "id"               : II_InstanceIdentifier.to_dict_req(),
-            "code"             : CE_CodedWithEquivalents.to_dict_req(),
-            "statusCode"       : CS_CodedSimpleValue.to_dict_req(),
-            "effectiveTime"    : IVL_TS_IntervalOfTime.to_dict_req(),
-            "wholeOrganization": Organization.to_dict_req(),
+            "realmCode"        : CS_CodedSimpleValue.to_dict(),
+            "typeId"           : InfrastructureRootTypeId.to_dict(),
+            "templateId"       : II_InstanceIdentifier.to_dict(),
+            "id"               : II_InstanceIdentifier.to_dict(),
+            "code"             : CE_CodedWithEquivalents.to_dict(),
+            "statusCode"       : CS_CodedSimpleValue.to_dict(),
+            "effectiveTime"    : IVL_TS_IntervalOfTime.to_dict(),
+            "wholeOrganization": Organization.to_dict(),
             "classCode"        : "PART"
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "id"       : II_InstanceIdentifier.to_dict_req(),
+            "classCode": "PART"
+        }

@@ -21,12 +21,15 @@ class IVL_PQ_IntervalOfPhysicalQuantities(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "low"   : INT_IntegerNumber.to_dict_req(),
-            "high"  : INT_IntegerNumber.to_dict_req(),
-            "center": INT_IntegerNumber.to_dict_req()
+            "low"   : INT_IntegerNumber.to_dict(),
+            "high"  : INT_IntegerNumber.to_dict(),
+            "center": INT_IntegerNumber.to_dict()
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "low" : INT_IntegerNumber.to_dict_req(),
+            "high": INT_IntegerNumber.to_dict_req()
+        }

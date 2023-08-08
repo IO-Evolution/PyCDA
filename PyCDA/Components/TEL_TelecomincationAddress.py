@@ -23,7 +23,7 @@ class TEL_TelecomincationAddress(Component_Model):
         return {
             "value"        : "",
             "use"          : "",
-            "useablePeriod": IVL_TS_IntervalOfTime.to_dict_req()
+            "useablePeriod": IVL_TS_IntervalOfTime.to_dict()
         }
 
     @classmethod

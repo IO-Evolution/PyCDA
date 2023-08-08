@@ -25,16 +25,20 @@ class Place(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"     : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"        : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"    : II_InstanceIdentifier.to_dict_req(),
-            "name"          : EN_GenericName.to_dict_req(),
-            "addr"          : AD_PostalAddress.to_dict_req(),
-            "classCode"     : "",
-            "determinerCode": ""
+            "realmCode"     : CS_CodedSimpleValue.to_dict(),
+            "typeId"        : InfrastructureRootTypeId.to_dict(),
+            "templateId"    : II_InstanceIdentifier.to_dict(),
+            "name"          : EN_GenericName.to_dict(),
+            "addr"          : AD_PostalAddress.to_dict(),
+            "classCode"     : "PLC",
+            "determinerCode": "INSTANCE"
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "name"          : EN_GenericName.to_dict_req(),
+            "classCode"     : "PLC",
+            "determinerCode": "INSTANCE"
+        }

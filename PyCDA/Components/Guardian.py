@@ -31,19 +31,22 @@ class Guardian(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"           : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"              : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"          : II_InstanceIdentifier.to_dict_req(),
-            "id"                  : II_InstanceIdentifier.to_dict_req(),
-            "code"                : CE_CodedWithEquivalents.to_dict_req(),
-            "addr"                : AD_PostalAddress.to_dict_req(),
-            "telecom"             : TEL_TelecomincationAddress.to_dict_req(),
-            "guardianPerson"      : Person.to_dict_req(),
-            "guardianOrganization": Organization.to_dict_req(),
+            "realmCode"           : CS_CodedSimpleValue.to_dict(),
+            "typeId"              : InfrastructureRootTypeId.to_dict(),
+            "templateId"          : II_InstanceIdentifier.to_dict(),
+            "id"                  : II_InstanceIdentifier.to_dict(),
+            "code"                : CE_CodedWithEquivalents.to_dict(),
+            "addr"                : AD_PostalAddress.to_dict(),
+            "telecom"             : TEL_TelecomincationAddress.to_dict(),
+            "guardianPerson"      : Person.to_dict(),
+            "guardianOrganization": Organization.to_dict(),
             "classCode"           : "GUARD"
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "id"       : II_InstanceIdentifier.to_dict_req(),
+            "classCode": "GUARD"
+        }

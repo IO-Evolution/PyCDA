@@ -29,7 +29,7 @@ class ED_EncapsulatedData(Component_Model):
         return {
             "mediaType"     : "",
             "representation": "",
-            "reference"     : TEL_TelecomincationAddress.to_dict_req(),
+            "reference"     : TEL_TelecomincationAddress.to_dict(),
             "thumbnail"     : "ED_EncapsulatedData rec",
             "text"          : ""
         }
@@ -37,4 +37,6 @@ class ED_EncapsulatedData(Component_Model):
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "text": ""
+        }

@@ -22,10 +22,10 @@ class AssignedCustodian(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"                       : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"                          : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"                      : II_InstanceIdentifier.to_dict_req(),
-            "representedCustodianOrganization": CustodianOrganization.to_dict_req(),
+            "realmCode"                       : CS_CodedSimpleValue.to_dict(),
+            "typeId"                          : InfrastructureRootTypeId.to_dict(),
+            "templateId"                      : II_InstanceIdentifier.to_dict(),
+            "representedCustodianOrganization": CustodianOrganization.to_dict(),
             "classCode"                       : "ASSIGNED"
         }
 
@@ -33,5 +33,6 @@ class AssignedCustodian(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "representedCustodianOrganization": CustodianOrganization.to_dict_req()
+            "representedCustodianOrganization": CustodianOrganization.to_dict_req(),
+            "classCode"                       : "ASSIGNED"
         }

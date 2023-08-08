@@ -36,15 +36,15 @@ class Organization(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"                : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"                   : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"               : II_InstanceIdentifier.to_dict_req(),
-            "id"                       : II_InstanceIdentifier.to_dict_req(),
-            "name"                     : ON_OrganisationName.to_dict_req(),
-            "telecom"                  : TEL_TelecomincationAddress.to_dict_req(),
-            "addr"                     : AD_PostalAddress.to_dict_req(),
-            "standardIndustryClassCode": CE_CodedWithEquivalents.to_dict_req(),
-            "asOrganizationPartOf"     : OrganizationPartOf.to_dict_req(),
+            "realmCode"                : CS_CodedSimpleValue.to_dict(),
+            "typeId"                   : InfrastructureRootTypeId.to_dict(),
+            "templateId"               : II_InstanceIdentifier.to_dict(),
+            "id"                       : II_InstanceIdentifier.to_dict(),
+            "name"                     : ON_OrganisationName.to_dict(),
+            "telecom"                  : TEL_TelecomincationAddress.to_dict(),
+            "addr"                     : AD_PostalAddress.to_dict(),
+            "standardIndustryClassCode": CE_CodedWithEquivalents.to_dict(),
+            "asOrganizationPartOf"     : OrganizationPartOf.to_dict(),
             "classCode"                : "ORG",
             "determinerCode"           : "INSTANCE"
         }
@@ -52,4 +52,8 @@ class Organization(Component_Model):
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "name"          : ON_OrganisationName.to_dict_req(),
+            "classCode"     : "ORG",
+            "determinerCode": "INSTANCE"
+        }

@@ -22,9 +22,9 @@ class PN_PersonName(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "given"    : ST_String.to_dict_req(),
-            "family"   : ST_String.to_dict_req(),
-            "validTime": IVL_TS_IntervalOfTime.to_dict_req()
+            "given"    : ST_String.to_dict(),
+            "family"   : ST_String.to_dict(),
+            "validTime": IVL_TS_IntervalOfTime.to_dict()
         }
 
     @classmethod

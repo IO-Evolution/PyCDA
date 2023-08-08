@@ -27,12 +27,12 @@ class Author(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"         : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"            : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"        : II_InstanceIdentifier.to_dict_req(),
-            "functionCode"      : CE_CodedWithEquivalents.to_dict_req(),
-            "time"              : TS_PointInTime.to_dict_req(),
-            "assignedAuthor"    : AssignedAuthor.to_dict_req(),
+            "realmCode"         : CS_CodedSimpleValue.to_dict(),
+            "typeId"            : InfrastructureRootTypeId.to_dict(),
+            "templateId"        : II_InstanceIdentifier.to_dict(),
+            "functionCode"      : CE_CodedWithEquivalents.to_dict(),
+            "time"              : TS_PointInTime.to_dict(),
+            "assignedAuthor"    : AssignedAuthor.to_dict(),
             "contectControlCode": "OP",
             "typeCode"          : "AUT"
         }
@@ -41,6 +41,8 @@ class Author(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "time"          : TS_PointInTime.to_dict_req(),
-            "assignedAuthor": AssignedAuthor.to_dict_req()
+            "time"              : TS_PointInTime.to_dict_req(),
+            "assignedAuthor"    : AssignedAuthor.to_dict_req(),
+            "contectControlCode": "OP",
+            "typeCode"          : "AUT"
         }

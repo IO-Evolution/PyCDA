@@ -30,20 +30,21 @@ class PatientRole(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"           : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"              : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"          : II_InstanceIdentifier.to_dict_req(),
-            "id"                  : II_InstanceIdentifier.to_dict_req(),
-            "addr"                : AD_PostalAddress.to_dict_req(),
-            "telecom"             : TEL_TelecomincationAddress.to_dict_req(),
-            "patient"             : Patient.to_dict_req(),
-            "providerOrganization": Organization.to_dict_req(),
-            "classCode"           : ""
+            "realmCode"           : CS_CodedSimpleValue.to_dict(),
+            "typeId"              : InfrastructureRootTypeId.to_dict(),
+            "templateId"          : II_InstanceIdentifier.to_dict(),
+            "id"                  : II_InstanceIdentifier.to_dict(),
+            "addr"                : AD_PostalAddress.to_dict(),
+            "telecom"             : TEL_TelecomincationAddress.to_dict(),
+            "patient"             : Patient.to_dict(),
+            "providerOrganization": Organization.to_dict(),
+            "classCode"           : "PAT"
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "id": II_InstanceIdentifier.to_dict_req()
+            "id"       : II_InstanceIdentifier.to_dict_req(),
+            "classCode": "PAT"
         }

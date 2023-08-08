@@ -12,7 +12,6 @@ class RecordTarget(Component_Model):
 
     def __init__(self, name: str, data: dict):
         self.name = name
-
         self.realmCode          = Element.Component(CS_CodedSimpleValue, "realmCode", data)
         self.typeId             = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
         self.templateId         = Element.Component(II_InstanceIdentifier, "templateId", data)
@@ -24,17 +23,19 @@ class RecordTarget(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"         : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"            : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"        : II_InstanceIdentifier.to_dict_req(),
-            "patientRole"       : PatientRole.to_dict_req(),
-            "typeCode"          : "",
-            "contextControlCode": ""
+            "realmCode"         : CS_CodedSimpleValue.to_dict(),
+            "typeId"            : InfrastructureRootTypeId.to_dict(),
+            "templateId"        : II_InstanceIdentifier.to_dict(),
+            "patientRole"       : PatientRole.to_dict(),
+            "typeCode"          : "RCT",
+            "contextControlCode": "OP"
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "patientRole": PatientRole.to_dict_req()
+            "patientRole"       : PatientRole.to_dict_req(),
+            "typeCode"          : "RCT",
+            "contextControlCode": "OP"
         }

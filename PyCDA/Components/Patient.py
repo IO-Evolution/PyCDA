@@ -21,7 +21,7 @@ class Patient(Component_Model):
         self.typeId                   = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
         self.templateId               = Element.Component(II_InstanceIdentifier, "templateId", data)
         self.id                       = Element.Component(II_InstanceIdentifier, "id", data, as_list=False)
-        self.name_                    = Element.Component(PN_PersonName, "name", data)
+        self._name                    = Element.Component(PN_PersonName, "name", data)
         self.administrativeGenderCode = Element.Component(CE_CodedWithEquivalents, "administrativeGenderCode", data, as_list=False)
         self.birthTime                = Element.Component(TS_PointInTime, "birthTime", data, as_list=False)
         self.maritalStatusCode        = Element.Component(CE_CodedWithEquivalents, "maritalStatusCode", data, as_list=True)
@@ -38,25 +38,29 @@ class Patient(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"               : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"                  : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"              : II_InstanceIdentifier.to_dict_req(),
-            "id"                      : II_InstanceIdentifier.to_dict_req(),
-            "name"                    : PN_PersonName.to_dict_req(),
-            "administrativeGenderCode": CE_CodedWithEquivalents.to_dict_req(),
-            "birthTime"               : TS_PointInTime.to_dict_req(),
-            "maritalStatusCode"       : CE_CodedWithEquivalents.to_dict_req(),
-            "religiousAfflitionCode"  : CE_CodedWithEquivalents.to_dict_req(),
-            "raceCode"                : CE_CodedWithEquivalents.to_dict_req(),
-            "ethnicGroupCode"         : CE_CodedWithEquivalents.to_dict_req(),
-            "guardian"                : Guardian.to_dict_req(),
-            "birthplace"              : BirthPlace.to_dict_req(),
-            "languageCommunication"   : LanguageCommunication.to_dict_req(),
-            "classCode"               : "",
-            "determinerCode"          : ""
+            "realmCode"               : CS_CodedSimpleValue.to_dict(),
+            "typeId"                  : InfrastructureRootTypeId.to_dict(),
+            "templateId"              : II_InstanceIdentifier.to_dict(),
+            "id"                      : II_InstanceIdentifier.to_dict(),
+            "name"                    : PN_PersonName.to_dict(),
+            "administrativeGenderCode": CE_CodedWithEquivalents.to_dict(),
+            "birthTime"               : TS_PointInTime.to_dict(),
+            "maritalStatusCode"       : CE_CodedWithEquivalents.to_dict(),
+            "religiousAfflitionCode"  : CE_CodedWithEquivalents.to_dict(),
+            "raceCode"                : CE_CodedWithEquivalents.to_dict(),
+            "ethnicGroupCode"         : CE_CodedWithEquivalents.to_dict(),
+            "guardian"                : Guardian.to_dict(),
+            "birthplace"              : BirthPlace.to_dict(),
+            "languageCommunication"   : LanguageCommunication.to_dict(),
+            "classCode"               : "PSN",
+            "determinerCode"          : "INSTANCE"
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "name"          : PN_PersonName.to_dict_req(),
+            "classCode"     : "PSN",
+            "determinerCode": "INSTANCE"
+        }

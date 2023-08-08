@@ -25,11 +25,11 @@ class DataEnterer(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"         : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"            : InfrastructureRootTypeId.to_dict_req(),
-            "templateId"        : II_InstanceIdentifier.to_dict_req(),
-            "time"              : TS_PointInTime.to_dict_req(),
-            "assignedEntity"    : AssignedEntity.to_dict_req(),
+            "realmCode"         : CS_CodedSimpleValue.to_dict(),
+            "typeId"            : InfrastructureRootTypeId.to_dict(),
+            "templateId"        : II_InstanceIdentifier.to_dict(),
+            "time"              : TS_PointInTime.to_dict(),
+            "assignedEntity"    : AssignedEntity.to_dict(),
             "contextControlCode": "OP",
             "typeCode"          : "ENT"
         }
@@ -38,5 +38,7 @@ class DataEnterer(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "assignedEntity": AssignedEntity.to_dict_req()
+            "assignedEntity"    : AssignedEntity.to_dict_req(),
+            "contextControlCode": "OP",
+            "typeCode"          : "ENT"
         }

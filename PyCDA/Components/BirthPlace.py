@@ -22,10 +22,10 @@ class BirthPlace(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode" : CS_CodedSimpleValue.to_dict_req(),
-            "typeId"    : InfrastructureRootTypeId.to_dict_req(),
-            "tempalteId": II_InstanceIdentifier.to_dict_req(),
-            "place"     : Place.to_dict_req(),
+            "realmCode" : CS_CodedSimpleValue.to_dict(),
+            "typeId"    : InfrastructureRootTypeId.to_dict(),
+            "tempalteId": II_InstanceIdentifier.to_dict(),
+            "place"     : Place.to_dict(),
             "classCode" : "BIRTHPL"
         }
 
@@ -33,5 +33,6 @@ class BirthPlace(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "place": Place.to_dict_req()
+            "place"    : Place.to_dict_req(),
+            "classCode": "BIRTHPL"
         }

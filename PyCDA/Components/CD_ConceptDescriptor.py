@@ -29,7 +29,7 @@ class CD_ConceptDescriptor(Component_Model):
             "codeSystem"       : "",
             "codeSystemVersion": "",
             "displayName"      : "",
-            "originalText"     : ST_String.to_dict_req(),
+            "originalText"     : ST_String.to_dict(),
             "translaction"     : "CD_ConceptDescriptor rec",
             "qualifier"        : ""
         }

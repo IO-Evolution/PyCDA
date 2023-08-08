@@ -29,8 +29,8 @@ class CE_CodedWithEquivalents(Component_Model):
             "codeSystem"       : "",
             "codeSystemVersion": "",
             "displayName"      : "",
-            "originalText"     : ST_String.to_dict_req(),
-            "translaction"     : CD_ConceptDescriptor.to_dict_req()
+            "originalText"     : ST_String.to_dict(),
+            "translaction"     : CD_ConceptDescriptor.to_dict()
         }
 
     @classmethod
