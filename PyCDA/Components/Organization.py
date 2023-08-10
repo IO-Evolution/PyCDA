@@ -10,9 +10,7 @@ from .AD_PostalAddress import AD_PostalAddress
 from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
 
 # IMPORT CIRCOLARI
-import sys
-if "PyCDA.Components.OrganizationPartOf" not in sys.modules:
-    from .OrganizationPartOf import OrganizationPartOf
+from . import OrganizationPartOf
 
 
 class Organization(Component_Model):
@@ -28,7 +26,7 @@ class Organization(Component_Model):
         self.telecom                   = Element.Component(TEL_TelecomincationAddress, "telecom", data)
         self.addr                      = Element.Component(AD_PostalAddress, "addr", data)
         self.standardIndustryClassCode = Element.Component(CE_CodedWithEquivalents, "standardIndustryClassCode", data, as_list=False)
-        self.asOrganizationPartOf      = Element.Component(OrganizationPartOf, "asOrganizationPartOf", data, as_list=False)
+        self.asOrganizationPartOf      = Element.Component(OrganizationPartOf.OrganizationPartOf, "asOrganizationPartOf", data, as_list=False)
         self.classCode                 = Element.Attribute("classCode", data, fixed="ORG")
         self.determinerCode            = Element.Attribute("determinerCode", data, fixed="INSTANCE")
 
@@ -44,7 +42,7 @@ class Organization(Component_Model):
             "telecom"                  : TEL_TelecomincationAddress.to_dict(),
             "addr"                     : AD_PostalAddress.to_dict(),
             "standardIndustryClassCode": CE_CodedWithEquivalents.to_dict(),
-            "asOrganizationPartOf"     : OrganizationPartOf.to_dict(),
+            "asOrganizationPartOf"     : OrganizationPartOf.OrganizationPartOf.to_dict(),
             "classCode"                : "ORG",
             "determinerCode"           : "INSTANCE"
         }

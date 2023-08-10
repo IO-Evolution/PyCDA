@@ -8,10 +8,7 @@ from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
 from .IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
 
 # IMPORT CIRCOLARI
-import sys
-if "PyCDA.Components.Organization" not in sys.modules:
-    from .Organization import Organization
-
+from . import Organization
 
 class OrganizationPartOf(Component_Model):
     """OrganizationPartOf"""
@@ -25,7 +22,7 @@ class OrganizationPartOf(Component_Model):
         self.code              = Element.Component(CE_CodedWithEquivalents, "code", data, as_list=False)
         self.statusCode        = Element.Component(CS_CodedSimpleValue, "statusCode", data, as_list=False)
         self.effectiveTime     = Element.Component(IVL_TS_IntervalOfTime, "effectiveTime", data, as_list=False)
-        self.wholeOrganization = Element.Component(Organization, "wholeOrganization", data, as_list=False)
+        self.wholeOrganization = Element.Component(Organization.Organization, "wholeOrganization", data, as_list=False)
         self.classCode         = Element.Attribute("classCode", data, fixed="PART")
 
     @classmethod
@@ -39,7 +36,7 @@ class OrganizationPartOf(Component_Model):
             "code"             : CE_CodedWithEquivalents.to_dict(),
             "statusCode"       : CS_CodedSimpleValue.to_dict(),
             "effectiveTime"    : IVL_TS_IntervalOfTime.to_dict(),
-            "wholeOrganization": Organization.to_dict(),
+            "wholeOrganization": "Organization.Organization rec",
             "classCode"        : "PART"
         }
 
