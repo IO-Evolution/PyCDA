@@ -1,5 +1,5 @@
 """Component Class Model"""
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 
 
 class Component_Model:
@@ -10,4 +10,9 @@ class Component_Model:
     @classmethod
     @abstractmethod
     def to_dict(cls):
+        """to_dict"""
+
+    @classmethod
+    @abstractmethod
+    def to_dict_req(cls):
         """to_dict"""
