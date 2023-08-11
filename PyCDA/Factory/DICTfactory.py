@@ -17,7 +17,7 @@ class DICTfactory:
         else:
             res = {}
             for attr in dir(obj):
-                if not attr.startswith("__") and attr != "to_dict" and attr != "to_dict_req" and attr != "name":
+                if not attr.startswith("__") and attr != "to_dict" and attr != "to_dict_req" and attr != "name" and getattr(obj, attr) is not None:
                     index = attr[1:] if attr.startswith("_") else attr
                     if not isinstance(getattr(obj, attr), str):
                         res[index] = self._to_dict(getattr(obj, attr))

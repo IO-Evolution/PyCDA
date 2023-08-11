@@ -1,5 +1,4 @@
 import xml.etree.ElementTree as ET
-from ..Components.ClinicalDocument import ClinicalDocument as CD
 from .DICTfactory import DICTfactory
 
 class XMLfactory:
