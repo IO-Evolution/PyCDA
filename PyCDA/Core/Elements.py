@@ -5,16 +5,18 @@ from .Exceptions import InvalidGivenValue, InvalidGivenSubelementData
 
 class Attribute:
     """ XML Attributes Class """
-    def __new__(cls, name: str, data: dict, required: bool = False, fixed: str = '') -> str | None:
+    def __new__(cls, name: str, data: dict, required: bool = False, fixed: str = '', default: str | None = '') -> str | None:
         try:
             if not fixed:
                 return data[name]
             else:
-                # return data[name] if data[name] == fixed else None
-                return data[name]
+                return data[name] if data[name] == fixed else default
+                # return data[name]
         except Exception as error:
-            if required:
+            if required and not default:
                 raise InvalidGivenValue(f"Something went wrong generating {name}") from error
+            elif default:
+                return default
             return None
 
 
