@@ -1,20 +1,54 @@
-from ..Core.Exceptions import InvalidGivenValue
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
+
+from .CS_CodedSimpleValue import CS_CodedSimpleValue
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
+from .II_InstanceIdentifier import II_InstanceIdentifier
+from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
+from .AD_PostalAddress import AD_PostalAddress
+from .TEL_TelecomincationAddress import TEL_TelecomincationAddress
+from .Device import Device
+from .PlayingEntity import PlayingEntity
+from .Entity import Entity
 
 
 class ParticipantRole(Component_Model):
     """ParticipantRole"""
 
     def __init__(self, name: str, data: dict):
-        pass
+        self.name          = name
+        self.realmCode     = Element.Component(CS_CodedSimpleValue, "realmCode", data)
+        self.typeId        = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
+        self.templateId    = Element.Component(II_InstanceIdentifier, "templateId", data)
+        self.id            = Element.Component(II_InstanceIdentifier, "id", data)
+        self.code          = Element.Component(CE_CodedWithEquivalents, "code", data, as_list=False)
+        self.addr          = Element.Component(AD_PostalAddress, "addr", data)
+        self.telecom       = Element.Component(TEL_TelecomincationAddress, "telecom", data)
+        self.playingDevice = Element.Component(Device, "playingDevice", data, as_list=False)
+        self.playingEntity = Element.Component(PlayingEntity, "playingEntity", data, as_list=False)
+        self.scopingEntity = Element.Component(Entity, "scopingEntity", data)
+        self.classCode     = Element.Attribute("classCode", data, default="ROL")
 
     @classmethod
     def to_dict(cls):
         """to_dict"""
-        return {}
+        return {
+            "realmCode"    : CS_CodedSimpleValue.to_dict(),
+            "typeId"       : InfrastructureRootTypeId.to_dict(),
+            "templateId"   : II_InstanceIdentifier.to_dict(),
+            "id"           : II_InstanceIdentifier.to_dict(),
+            "code"         : CE_CodedWithEquivalents.to_dict(),
+            "addr"         : AD_PostalAddress.to_dict(),
+            "telecom"      : TEL_TelecomincationAddress.to_dict(),
+            "playingDevice": Device.to_dict(),
+            "playingEntity": PlayingEntity.to_dict(),
+            "scopingEntity": Entity.to_dict(),
+            "classCode"    : ""
+        }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "code": CE_CodedWithEquivalents.to_dict_req()
+        }

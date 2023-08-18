@@ -1,20 +1,47 @@
-from ..Core.Exceptions import InvalidGivenValue
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
+
+from .CS_CodedSimpleValue import CS_CodedSimpleValue
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
+from .II_InstanceIdentifier import II_InstanceIdentifier
+from .IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
+from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
+from .ParticipantRole import ParticipantRole
 
 
 class Participant2(Component_Model):
     """Participant2"""
 
     def __init__(self, name: str, data: dict):
-        pass
+        self.name               = name
+        self.realmCode          = Element.Component(CS_CodedSimpleValue, "realmCode", data)
+        self.typeId             = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
+        self.templateId         = Element.Component(II_InstanceIdentifier, "templateId", data)
+        self.time               = Element.Component(IVL_TS_IntervalOfTime, "time", data, as_list=False)
+        self.awarenessCode      = Element.Component(CE_CodedWithEquivalents, "awarenessCode", data, as_list=False)
+        self.participantRole    = Element.Component(ParticipantRole, "participantRole", data, required=True, as_list=False)
+        self.contextControlCode = Element.Attribute("contextControlCode", data, fixed="OP")
+        self.typeCode           = Element.Attribute("typeCode", data, required=True)
 
     @classmethod
     def to_dict(cls):
         """to_dict"""
-        return {}
+        return {
+            "realmCode"         : CS_CodedSimpleValue.to_dict(),
+            "typeId"            : InfrastructureRootTypeId.to_dict(),
+            "templateId"        : II_InstanceIdentifier.to_dict(),
+            "time"              : IVL_TS_IntervalOfTime.to_dict(),
+            "awarenessCode"     : CE_CodedWithEquivalents.to_dict(),
+            "participantRole"   : ParticipantRole.to_dict(),
+            "contextControlCode": "OP",
+            "typeCode"          : ""
+        }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
-        return {}
+        return {
+            "participantRole"   : ParticipantRole.to_dict_req(),
+            "contextControlCode": "OP",
+            "typeCode"          : ""
+        }
