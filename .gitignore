@@ -5,3 +5,5 @@ data.json
 json.txt
 output.xml
 gen/
+build/
+PyCDA.egg-info/
