@@ -38,7 +38,7 @@ class Component2(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "structuredBody"      : StructuredBody.to_dict(),
+            "structuredBody"      : StructuredBody.to_dict_req(),
             "contextConductionInd": "true",
             "typeCode"            : "COMP"
         }

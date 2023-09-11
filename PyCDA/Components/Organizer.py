@@ -60,7 +60,7 @@ class Organizer(Component_Model):
             "participant"  : Participant2.to_dict(),
             "reference"    : Reference.to_dict(),
             "precondition" : Precondition.to_dict(),
-            "component"    : Component4.to_dict(),
+            "component"    : "Component4.to_dict() rec",
             "classCode"    : "",
             "moodCode"     : ""
         }

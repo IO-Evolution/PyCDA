@@ -11,9 +11,11 @@ from .Performer2 import Performer2
 from .Author import Author
 from .Informant12 import Informant12
 from .Participant2 import Participant2
-from .EntryRelationship import EntryRelationship
 from .Reference import Reference
 from .Precondition import Precondition
+
+# IMPORT CIRCOLARI
+from . import EntryRelationship
 
 
 class ObservationMedia(Component_Model):
@@ -33,7 +35,7 @@ class ObservationMedia(Component_Model):
         self.author = Element.Component(Author, "author", data)
         self.informant = Element.Component(Informant12, "informant", data)
         self.participant = Element.Component(Participant2, "participant", data)
-        self.entryRelationship = Element.Component(EntryRelationship, "entryRelationship", data)
+        self.entryRelationship = Element.Component(EntryRelationship.EntryRelationship, "entryRelationship", data)
         self.reference = Element.Component(Reference, "reference", data)
         self.precondition = Element.Component(Precondition, "precondition", data)
         self.classCode = Element.Attribute("classCode", data, required=True)
@@ -56,7 +58,7 @@ class ObservationMedia(Component_Model):
             "author": Author.to_dict(),
             "informant": Informant12.to_dict(),
             "participant": Participant2.to_dict(),
-            "entryRelationship": EntryRelationship.to_dict(),
+            "entryRelationship": "EntryRelationship.EntryRelationship.to_dict() rec",
             "reference": Reference.to_dict(),
             "precondition": Precondition.to_dict(),
             "classCode": "",

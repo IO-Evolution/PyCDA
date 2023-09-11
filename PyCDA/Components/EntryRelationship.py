@@ -6,7 +6,6 @@ from .InfrastructureRootTypeId import InfrastructureRootTypeId
 from .II_InstanceIdentifier import II_InstanceIdentifier
 from .INT_IntegerNumber import INT_IntegerNumber
 from .BL_Boolean import BL_Boolean
-from .Act import Act
 from .Encounter import Encounter
 from .Observation import Observation
 from .ObservationMedia import ObservationMedia
@@ -16,6 +15,8 @@ from .RegionOfInterest import RegionOfInterest
 from .SubstanceAdministration import SubstanceAdministration
 from .Supply import Supply
 
+# IMPORT CIRCOLARI
+from . import Act
 
 class EntryRelationship(Component_Model):
     """EntryRelationship"""
@@ -27,7 +28,7 @@ class EntryRelationship(Component_Model):
         self.templateId              = Element.Component(II_InstanceIdentifier, "templateId", data)
         self.sequenceNumber          = Element.Component(INT_IntegerNumber, "sequenceNumber", data, as_list=False)
         self.seperatableInd          = Element.Component(BL_Boolean, "seperatableInd", data, as_list=False)
-        self.act                     = Element.Component(Act, "act", data, as_list=False)
+        self.act                     = Element.Component(Act.Act, "act", data, as_list=False)
         self.encounter               = Element.Component(Encounter, "encounter", data, as_list=False)
         self.observation             = Element.Component(Observation, "observation", data, as_list=False)
         self.observationMedia        = Element.Component(ObservationMedia, "observationMedia", data, as_list=False)
@@ -50,10 +51,10 @@ class EntryRelationship(Component_Model):
             "templateId"             : II_InstanceIdentifier.to_dict(),
             "sequenceNumber"         : INT_IntegerNumber.to_dict(),
             "seperatableInd"         : BL_Boolean.to_dict(),
-            "act"                    : Act.to_dict(),
-            "encounter"              : Encounter.to_dict(),
-            "observation"            : Observation.to_dict(),
-            "observationMedia"       : ObservationMedia.to_dict(),
+            "act"                    : "Act.Act.to_dict() rec",
+            "encounter"              : "Encounter.to_dict() rec",
+            "observation"            : "Observation.to_dict() rec",
+            "observationMedia"       : "ObservationMedia.to_dict() rec",
             "organizer"              : Organizer.to_dict(),
             "procedure"              : Procedure.to_dict(),
             "regionOfInterest"       : RegionOfInterest.to_dict(),
