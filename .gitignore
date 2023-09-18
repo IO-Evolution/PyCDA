@@ -8,3 +8,4 @@ gen/
 build/
 PyCDA.egg-info/
 HL7DOC.pdf
+.idea/
