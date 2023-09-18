@@ -1,6 +1,6 @@
-from ..Core.Exceptions import InvalidGivenValue
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
+from ..Core.Exceptions import InvalidGivenValue
 
 
 class CS_CodedSimpleValue(Component_Model):

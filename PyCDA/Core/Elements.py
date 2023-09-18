@@ -1,10 +1,10 @@
-
 """CDA Component Utils"""
 from .Exceptions import InvalidGivenValue, InvalidGivenSubelementData
 
 
 class Attribute:
     """ XML Attributes Class """
+
     def __new__(cls, name: str, data: dict, required: bool = False, fixed: str = '', default: str | None = '') -> str | None:
         try:
             if not fixed:
@@ -22,28 +22,19 @@ class Attribute:
 
 class Component:
     """ XML Component Class """
-    def __new__(cls, className: type, name: str, data: dict, required: bool = False, as_list: bool = True):
+
+    def __new__(cls, class_name: type, name: str, data: dict, required: bool = False, as_list: bool = True):
         try:
-            if isinstance(data[name], (dict)):
-                return className(name, data[name])
-            elif isinstance(data[name], (list)) and as_list:
-                return [className(name, elem) for elem in data[name]]
+            if isinstance(data[name], dict):
+                return class_name(name, data[name])
+            elif isinstance(data[name], list) and as_list:
+                return [class_name(name, elem) for elem in data[name]]
             else:
                 if as_list:
-                    raise InvalidGivenSubelementData(f"{name} of type {className.__class__} can't be listed")
+                    raise InvalidGivenSubelementData(f"{name} of type {class_name.__class__} can't be listed")
                 else:
-                    raise InvalidGivenSubelementData(f"{name} of type {className.__class__} must be dict or list")
-            # elif type(className) == ComplexType:
-            #     if type(data[name]) == dict:
-            #         return className(name, data[name])
-            #     elif type(data[name]) == list and as_list:
-            #         return [className(name, elem) for elem in data[name]]
-            #     else:
-            #         if type(data[name]) == list and as_list:
-            #             raise InvalidGivenSubelementData(f"{name} of type {className.__class__} can't be listed")
-            #         else:
-            #             raise InvalidGivenSubelementData(f"{name} of type {className.__class__} must be dict or list")
+                    raise InvalidGivenSubelementData(f"{name} of type {class_name.__class__} must be dict or list")
         except Exception as error:
             if required:
-                raise InvalidGivenSubelementData(f"Something went wrong generating {name} of type {className.__class__}") from error
+                raise InvalidGivenSubelementData(f"Something went wrong generating {name} of type {class_name.__class__}") from error
             return None

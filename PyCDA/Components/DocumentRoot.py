@@ -1,25 +1,24 @@
+from .ClinicalDocument import ClinicalDocument
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
-
-from .ClinicalDocument import ClinicalDocument
 
 
 class DocumentRoot(Component_Model):
     """DocumentRoot"""
 
     def __init__(self, name: str, data: dict):
-        self.name              = name
-        self.xMLNSPrefixMap    = Element.Attribute("xMLNSPrefixMap", data)
+        self.name = name
+        self.xMLNSPrefixMap = Element.Attribute("xMLNSPrefixMap", data)
         self.xSlSchemaLocation = Element.Attribute("xSlSchemaLocation", data)
-        self.clinicalDocument  = Element.Component(ClinicalDocument, "clinicalDocument", data, as_list=False)
+        self.clinicalDocument = Element.Component(ClinicalDocument, "clinicalDocument", data, as_list=False)
 
     @classmethod
     def to_dict(cls):
         """to_dict"""
         return {
-            "xMLNSPrefixMap"   : "",
+            "xMLNSPrefixMap": "",
             "xSlSchemaLocation": "",
-            "clinicalDocument" : ClinicalDocument.to_dict()
+            "clinicalDocument": ClinicalDocument.to_dict()
         }
 
     @classmethod

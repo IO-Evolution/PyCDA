@@ -1,10 +1,9 @@
+from .CS_CodedSimpleValue import CS_CodedSimpleValue
+from .II_InstanceIdentifier import II_InstanceIdentifier
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
+from .ParentDocument import ParentDocument
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
-
-from .CS_CodedSimpleValue import CS_CodedSimpleValue
-from .InfrastructureRootTypeId import InfrastructureRootTypeId
-from .II_InstanceIdentifier import II_InstanceIdentifier
-from .ParentDocument import ParentDocument
 
 
 class RelatedDocument(Component_Model):

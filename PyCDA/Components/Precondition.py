@@ -1,33 +1,31 @@
-from ..Core.Exceptions import InvalidGivenValue
+from .CS_CodedSimpleValue import CS_CodedSimpleValue
+from .Criterion import Criterion
+from .II_InstanceIdentifier import II_InstanceIdentifier
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
-
-from .CS_CodedSimpleValue import CS_CodedSimpleValue
-from .InfrastructureRootTypeId import InfrastructureRootTypeId
-from .II_InstanceIdentifier import II_InstanceIdentifier
-from .Criterion import Criterion
 
 
 class Precondition(Component_Model):
     """Precondition"""
 
     def __init__(self, name: str, data: dict):
-        self.name       = name
-        self.realmCode  = Element.Component(CS_CodedSimpleValue, "realmCode", data)
-        self.typeId     = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
+        self.name = name
+        self.realmCode = Element.Component(CS_CodedSimpleValue, "realmCode", data)
+        self.typeId = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
         self.templateId = Element.Component(II_InstanceIdentifier, "templateId", data)
-        self.criterion  = Element.Component(Criterion, "criterion", data, required=True, as_list=False)
-        self.typeCode   = Element.Attribute("typeCode", data, fixed="PRCN")
+        self.criterion = Element.Component(Criterion, "criterion", data, required=True, as_list=False)
+        self.typeCode = Element.Attribute("typeCode", data, fixed="PRCN")
 
     @classmethod
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode" : CS_CodedSimpleValue.to_dict(),
-            "typeId"    : InfrastructureRootTypeId.to_dict(),
+            "realmCode": CS_CodedSimpleValue.to_dict(),
+            "typeId": InfrastructureRootTypeId.to_dict(),
             "templateId": II_InstanceIdentifier.to_dict(),
-            "criterion" : Criterion.to_dict(),
-            "typeCode"  : "PRCN"
+            "criterion": Criterion.to_dict(),
+            "typeCode": "PRCN"
         }
 
     @classmethod
@@ -35,5 +33,5 @@ class Precondition(Component_Model):
         """to_dict"""
         return {
             "criterion": Criterion.to_dict_req(),
-            "typeCode" : "PRCN"
+            "typeCode": "PRCN"
         }

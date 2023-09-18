@@ -1,11 +1,10 @@
+from .AssignedEntity import AssignedEntity
+from .CS_CodedSimpleValue import CS_CodedSimpleValue
+from .II_InstanceIdentifier import II_InstanceIdentifier
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
+from .TS_PointInTime import TS_PointInTime
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
-
-from .CS_CodedSimpleValue import CS_CodedSimpleValue
-from .InfrastructureRootTypeId import InfrastructureRootTypeId
-from .II_InstanceIdentifier import II_InstanceIdentifier
-from .TS_PointInTime import TS_PointInTime
-from .AssignedEntity import AssignedEntity
 
 
 class LegalAuthenticator(Component_Model):
@@ -26,23 +25,23 @@ class LegalAuthenticator(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "realmCode"         : CS_CodedSimpleValue.to_dict(),
-            "typeId"            : InfrastructureRootTypeId.to_dict(),
-            "templateId"        : II_InstanceIdentifier.to_dict(),
-            "time"              : TS_PointInTime.to_dict(),
-            "signatureCode"     : CS_CodedSimpleValue.to_dict(),
-            "assignedEntity"    : AssignedEntity.to_dict(),
+            "realmCode": CS_CodedSimpleValue.to_dict(),
+            "typeId": InfrastructureRootTypeId.to_dict(),
+            "templateId": II_InstanceIdentifier.to_dict(),
+            "time": TS_PointInTime.to_dict(),
+            "signatureCode": CS_CodedSimpleValue.to_dict(),
+            "assignedEntity": AssignedEntity.to_dict(),
             "contextControlCode": "OP",
-            "typeCode"          : "LA",
+            "typeCode": "LA",
         }
 
     @classmethod
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "time"              : TS_PointInTime.to_dict_req(),
-            "signatureCode"     : CS_CodedSimpleValue.to_dict_req(),
-            "assignedEntity"    : AssignedEntity.to_dict_req(),
+            "time": TS_PointInTime.to_dict_req(),
+            "signatureCode": CS_CodedSimpleValue.to_dict_req(),
+            "assignedEntity": AssignedEntity.to_dict_req(),
             "contextControlCode": "OP",
-            "typeCode"          : "LA",
+            "typeCode": "LA",
         }

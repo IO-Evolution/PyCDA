@@ -1,21 +1,19 @@
-from ..Core import Elements as Element
-from ..Core.Component_Model import Component_Model
-
-from .CS_CodedSimpleValue import CS_CodedSimpleValue
-from .InfrastructureRootTypeId import InfrastructureRootTypeId
-from .II_InstanceIdentifier import II_InstanceIdentifier
-from .ED_EncapsulatedData import ED_EncapsulatedData
-from .Subject import Subject
-from .Specimen import Specimen
-from .Performer2 import Performer2
-from .Author import Author
-from .Informant12 import Informant12
-from .Participant2 import Participant2
-from .Reference import Reference
-from .Precondition import Precondition
-
 # IMPORT CIRCOLARI
 from . import EntryRelationship
+from .Author import Author
+from .CS_CodedSimpleValue import CS_CodedSimpleValue
+from .ED_EncapsulatedData import ED_EncapsulatedData
+from .II_InstanceIdentifier import II_InstanceIdentifier
+from .Informant12 import Informant12
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
+from .Participant2 import Participant2
+from .Performer2 import Performer2
+from .Precondition import Precondition
+from .Reference import Reference
+from .Specimen import Specimen
+from .Subject import Subject
+from ..Core import Elements as Element
+from ..Core.Component_Model import Component_Model
 
 
 class ObservationMedia(Component_Model):

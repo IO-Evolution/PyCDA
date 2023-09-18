@@ -1,12 +1,11 @@
+from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
+from .CS_CodedSimpleValue import CS_CodedSimpleValue
+from .EN_GenericName import EN_GenericName
+from .II_InstanceIdentifier import II_InstanceIdentifier
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
+from .ST_String import ST_String
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
-
-from .CS_CodedSimpleValue import CS_CodedSimpleValue
-from .InfrastructureRootTypeId import InfrastructureRootTypeId
-from .II_InstanceIdentifier import II_InstanceIdentifier
-from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
-from .EN_GenericName import EN_GenericName
-from .ST_String import ST_String
 
 
 class Material(Component_Model):
@@ -41,8 +40,8 @@ class Material(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "id"            : CE_CodedWithEquivalents.to_dict_req(),
-            "name"          : EN_GenericName.to_dict_req(),
-            "classCode"     : "MMAT",
+            "id": CE_CodedWithEquivalents.to_dict_req(),
+            "name": EN_GenericName.to_dict_req(),
+            "classCode": "MMAT",
             "determinerCode": "KIND"
         }

@@ -1,7 +1,7 @@
+from .TEL_TelecomincationAddress import TEL_TelecomincationAddress
+from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
 from ..Core.Exceptions import InvalidGivenValue
-from ..Core import Elements as Element
-from .TEL_TelecomincationAddress import TEL_TelecomincationAddress
 
 
 class ED_EncapsulatedData(Component_Model):
@@ -11,11 +11,11 @@ class ED_EncapsulatedData(Component_Model):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
 
-        self.name           = name
-        self.mediaType      = Element.Attribute("mediaType", data)
+        self.name = name
+        self.mediaType = Element.Attribute("mediaType", data)
         self.representation = Element.Attribute("representation", data)
-        self.reference      = Element.Component(TEL_TelecomincationAddress, "reference", data)
-        self.thumbnail      = Element.Component(ED_EncapsulatedData, "thumbnail", data)
+        self.reference = Element.Component(TEL_TelecomincationAddress, "reference", data)
+        self.thumbnail = Element.Component(ED_EncapsulatedData, "thumbnail", data)
 
         if self.reference is None and self.thumbnail is None:
             try:
@@ -27,11 +27,11 @@ class ED_EncapsulatedData(Component_Model):
     def to_dict(cls):
         """to_dict"""
         return {
-            "mediaType"     : "",
+            "mediaType": "",
             "representation": "",
-            "reference"     : TEL_TelecomincationAddress.to_dict(),
-            "thumbnail"     : "ED_EncapsulatedData rec",
-            "text"          : ""
+            "reference": TEL_TelecomincationAddress.to_dict(),
+            "thumbnail": "ED_EncapsulatedData rec",
+            "text": ""
         }
 
     @classmethod

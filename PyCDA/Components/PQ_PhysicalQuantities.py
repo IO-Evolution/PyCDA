@@ -1,6 +1,6 @@
-from ..Core.Exceptions import InvalidGivenValue
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
+from ..Core.Exceptions import InvalidGivenValue
 
 
 class PQ_PhysicalQuantities(Component_Model):
@@ -10,17 +10,17 @@ class PQ_PhysicalQuantities(Component_Model):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
 
-        self.name  = name
+        self.name = name
 
         self.value = Element.Attribute("value", data, required=True)
-        self.unit  = Element.Attribute("unit", data, required=True)
+        self.unit = Element.Attribute("unit", data, required=True)
 
     @classmethod
     def to_dict(cls):
         """to_dict"""
         return {
             "value": "",
-            "unit" : ""
+            "unit": ""
         }
 
     @classmethod
@@ -28,5 +28,5 @@ class PQ_PhysicalQuantities(Component_Model):
         """to_dict"""
         return {
             "value": "",
-            "unit" : ""
+            "unit": ""
         }

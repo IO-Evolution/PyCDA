@@ -1,22 +1,20 @@
-from ..Core import Elements as Element
-from ..Core.Component_Model import Component_Model
-
+# IMPORT CIRCOLARI
+from . import Act
+from . import Organizer
+from .BL_Boolean import BL_Boolean
 from .CS_CodedSimpleValue import CS_CodedSimpleValue
-from .InfrastructureRootTypeId import InfrastructureRootTypeId
+from .Encounter import Encounter
 from .II_InstanceIdentifier import II_InstanceIdentifier
 from .INT_IntegerNumber import INT_IntegerNumber
-from .BL_Boolean import BL_Boolean
-from .Encounter import Encounter
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
 from .Observation import Observation
 from .ObservationMedia import ObservationMedia
 from .Procedure import Procedure
 from .RegionOfInterest import RegionOfInterest
 from .SubstanceAdministration import SubstanceAdministration
 from .Supply import Supply
-
-# IMPORT CIRCOLARI
-from . import Act
-from . import Organizer
+from ..Core import Elements as Element
+from ..Core.Component_Model import Component_Model
 
 
 class Component4(Component_Model):

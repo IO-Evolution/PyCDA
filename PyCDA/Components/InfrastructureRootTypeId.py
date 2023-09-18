@@ -12,7 +12,7 @@ class InfrastructureRootTypeId(II_InstanceIdentifier):
     def to_dict(cls):
         """to_dict"""
         return {
-            "root"     : "2.16.840.1.113883.1.3",
+            "root": "2.16.840.1.113883.1.3",
             "extension": ""
         }
 

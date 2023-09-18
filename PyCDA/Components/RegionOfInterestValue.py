@@ -1,6 +1,6 @@
+from .INT_IntegerNumber import INT_IntegerNumber
 from ..Core import Elements as Element
 
-from .INT_IntegerNumber import INT_IntegerNumber
 
 class RegionOfInterestValue(INT_IntegerNumber):
     """RegionOfInterestValue"""

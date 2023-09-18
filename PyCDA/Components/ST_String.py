@@ -1,5 +1,5 @@
-from ..Core.Exceptions import InvalidGivenValue
 from ..Core.Component_Model import Component_Model
+from ..Core.Exceptions import InvalidGivenValue
 
 
 class ST_String(Component_Model):

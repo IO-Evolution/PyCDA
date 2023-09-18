@@ -1,24 +1,22 @@
-from ..Core import Elements as Element
-from ..Core.Component_Model import Component_Model
-
-from .CS_CodedSimpleValue import CS_CodedSimpleValue
-from .InfrastructureRootTypeId import InfrastructureRootTypeId
-from .II_InstanceIdentifier import II_InstanceIdentifier
-from .CD_ConceptDescriptor import CD_ConceptDescriptor
-from .ED_EncapsulatedData import ED_EncapsulatedData
-from .IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
-from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
-from .Subject import Subject
-from .Specimen import Specimen
-from .Performer2 import Performer2
-from .Author import Author
-from .Informant12 import Informant12
-from .Participant2 import Participant2
-from .Reference import Reference
-from .Precondition import Precondition
-
 # IMPORT CIRCOLARI
 from . import EntryRelationship
+from .Author import Author
+from .CD_ConceptDescriptor import CD_ConceptDescriptor
+from .CE_CodedWithEquivalents import CE_CodedWithEquivalents
+from .CS_CodedSimpleValue import CS_CodedSimpleValue
+from .ED_EncapsulatedData import ED_EncapsulatedData
+from .II_InstanceIdentifier import II_InstanceIdentifier
+from .IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
+from .Informant12 import Informant12
+from .InfrastructureRootTypeId import InfrastructureRootTypeId
+from .Participant2 import Participant2
+from .Performer2 import Performer2
+from .Precondition import Precondition
+from .Reference import Reference
+from .Specimen import Specimen
+from .Subject import Subject
+from ..Core import Elements as Element
+from ..Core.Component_Model import Component_Model
 
 
 class Encounter(Component_Model):
