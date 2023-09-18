@@ -1,9 +1,10 @@
 .env/
 __pycache__/
-test.py
+gen.py
 data.json
 json.txt
 output.xml
 gen/
 build/
 PyCDA.egg-info/
+HL7DOC.pdf
