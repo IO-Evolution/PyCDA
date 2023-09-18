@@ -100,14 +100,20 @@ class ClinicalDocument(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
+            "realmCode"          : CS_CodedSimpleValue.to_dict_req(),
             "typeId"             : InfrastructureRootTypeId.to_dict_req(),
+            "templateId"         : II_InstanceIdentifier.to_dict_req(),
             "id"                 : II_InstanceIdentifier.to_dict_req(),
             "code"               : CE_CodedWithEquivalents.to_dict_req(),
             "effectiveTime"      : TS_PointInTime.to_dict_req(),
             "confidentialityCode": CE_CodedWithEquivalents.to_dict_req(),
+            "languageCode"       : CS_CodedSimpleValue.to_dict_req(),
+            "setId"              : II_InstanceIdentifier.to_dict_req(),
+            "versionNumber"      : INT_IntegerNumber.to_dict_req(),
             "recordTarget"       : RecordTarget.to_dict_req(),
             "author"             : Author.to_dict_req(),
             "custodian"          : Custodian.to_dict_req(),
+            "legalAuthenticator" : LegalAuthenticator.to_dict_req(),
             "component"          : Component2.to_dict_req(),
             "classCode"          : "DOCCLIN",
             "moodCode"           : "EVN"

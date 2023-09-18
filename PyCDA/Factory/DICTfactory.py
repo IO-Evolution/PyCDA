@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 class DICTfactory:
     def __init__(self, obj):
         self.obj = obj
@@ -13,10 +15,12 @@ class DICTfactory:
         elif isinstance(obj, dict):
             return {key: self._to_dict(value) for key, value in obj.items()}
         elif "text" in dir(obj):
-            return obj.text
+            return {"_text": obj.text}
         else:
-            res = {}
-            for attr in dir(obj):
+            res = OrderedDict()
+            for attr in obj.__dict__:
+                if attr == "section":
+                    print(attr)
                 if not attr.startswith("__") and attr != "to_dict" and attr != "to_dict_req" and attr != "name" and getattr(obj, attr) is not None:
                     index = attr[1:] if attr.startswith("_") else attr
                     if not isinstance(getattr(obj, attr), str):
@@ -24,4 +28,4 @@ class DICTfactory:
                     else:
                         res[f"__{index}"] = self._to_dict(getattr(obj, attr))
 
-            return res
+            return dict(res)

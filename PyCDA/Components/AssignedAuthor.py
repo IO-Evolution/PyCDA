@@ -50,6 +50,8 @@ class AssignedAuthor(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "id"       : II_InstanceIdentifier.to_dict_req(),
-            "classCode": "ASSIGNED"
+            "id"            : II_InstanceIdentifier.to_dict_req(),
+            "assignedPerson": Person.to_dict_req(),
+            "telecom"       : TEL_TelecomincationAddress.to_dict_req(),
+            "classCode"     : "ASSIGNED"
         }

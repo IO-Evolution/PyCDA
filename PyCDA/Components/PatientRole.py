@@ -46,5 +46,6 @@ class PatientRole(Component_Model):
         """to_dict"""
         return {
             "id"       : II_InstanceIdentifier.to_dict_req(),
+            "patient"  : Patient.to_dict_req(),
             "classCode": "PAT"
         }

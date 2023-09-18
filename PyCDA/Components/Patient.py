@@ -60,7 +60,9 @@ class Patient(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "name"          : PN_PersonName.to_dict_req(),
-            "classCode"     : "PSN",
-            "determinerCode": "INSTANCE"
+            "name"                    : PN_PersonName.to_dict_req(),
+            "administrativeGenderCode": CE_CodedWithEquivalents.to_dict_req(),
+            "birthTime"               : TS_PointInTime.to_dict_req(),
+            "classCode"               : "PSN",
+            "determinerCode"          : "INSTANCE"
         }

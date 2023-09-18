@@ -1,4 +1,5 @@
-import xml.etree.ElementTree as ET
+# import xml.etree.ElementTree as ET
+from lxml import etree as ET
 from .DICTfactory import DICTfactory
 
 class XMLfactory:
@@ -19,16 +20,22 @@ class XMLfactory:
 
     def _dict_to_xml(self, node, data: dict):
         for key, value in data.items():
+            print(key, value)
             if isinstance(value, dict):
-                if "text" in value and len(value) == 1:
+                if "_text" in value and len(value) == 1:
                     subnode = ET.SubElement(node, key)
-                    subnode.text = str(value["text"])
+                    subnode.text = str(value["_text"])
                 else:
                     subnode = ET.Element(key)
                     node.append(subnode)
                     self._dict_to_xml(subnode, value)
             elif key.startswith("__"):
                 node.set(key[2:], value)
+            elif isinstance(value, list):
+                for el in value:
+                    subnode = ET.Element(key)
+                    node.append(subnode)
+                    self._dict_to_xml(subnode, el)
             else:
                 subnode = ET.SubElement(node, key)
                 subnode.text = f"dato di {key}"

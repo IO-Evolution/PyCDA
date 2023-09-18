@@ -47,6 +47,8 @@ class AssignedEntity(Component_Model):
     def to_dict_req(cls):
         """to_dict"""
         return {
-            "id"       : II_InstanceIdentifier.to_dict_req(),
-            "classCode": "ASSIGNED"
+            "id"                     : II_InstanceIdentifier.to_dict_req(),
+            "assignedPerson"         : Person.to_dict_req(),
+            "representedOrganization": Organization.to_dict_req(),
+            "classCode"              : "ASSIGNED"
         }

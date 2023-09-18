@@ -10,16 +10,18 @@ class II_InstanceIdentifier(Component_Model):
         if not data or data is None:
             raise InvalidGivenValue("Empty Data Set")
 
-        self.name      = name
-        self.root      = Element.Attribute("root", data, required=True)
-        self.extension = Element.Attribute("extension", data)
+        self.name                   = name
+        self.root                   = Element.Attribute("root", data, required=True)
+        self.extension              = Element.Attribute("extension", data)
+        self.assigningAuthorityName = Element.Attribute("assigningAuthorityName", data)
 
     @classmethod
     def to_dict(cls):
         """to_dict"""
         return {
-            "root"     : "",
-            "extension": ""
+            "root"                  : "",
+            "extension"             : "",
+            "assigningAuthorityName": ""
         }
 
     @classmethod

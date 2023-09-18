@@ -44,6 +44,7 @@ class CustodianOrganization(Component_Model):
         """to_dict"""
         return {
             "id"            : II_InstanceIdentifier.to_dict_req(),
+            "name"          : ON_OrganisationName.to_dict_req(),
             "classCode"     : "ORG",
             "determinerCode": "INSTANCE"
         }

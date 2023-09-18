@@ -17,6 +17,7 @@ class Section(Component_Model):
     """Section"""
 
     def __init__(self, name: str, data: dict):
+        print(data)
         self.name                = name
         self.realmCode           = Element.Component(CS_CodedSimpleValue, "realmCode", data)
         self.typeId              = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)
@@ -24,7 +25,7 @@ class Section(Component_Model):
         self.id                  = Element.Component(II_InstanceIdentifier, "id", data, as_list=False)
         self.code                = Element.Component(CE_CodedWithEquivalents, "code", data, as_list=False)
         self.title               = Element.Component(ST_String, "title", data, as_list=False)
-        self.text                = Element.Component(ST_String, "text", data, as_list=False)
+        self._text               = Element.Component(ST_String, "text", data, as_list=False)
         self.confidentialityCode = Element.Component(CE_CodedWithEquivalents, "confidentialityCode", data, as_list=False)
         self.languageCode        = Element.Component(CS_CodedSimpleValue, "languageCode", data, as_list=False)
         self.subject             = Element.Component(Subject, "sibject", data, as_list=False)

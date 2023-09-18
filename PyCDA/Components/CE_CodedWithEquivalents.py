@@ -18,6 +18,7 @@ class CE_CodedWithEquivalents(Component_Model):
         self.codeSystem        = Element.Attribute("codeSystem", data, required=True)
         self.codeSystemVersion = Element.Attribute("codeSystemVersion", data)
         self.displayName       = Element.Attribute("displayName", data)
+        self.codeSystemName    = Element.Attribute("codeSystemName", data)
         self.originalText      = Element.Component(ST_String, "originalText", data)
         self.translaction      = Element.Component(CD_ConceptDescriptor, "translaction", data)
 
@@ -29,6 +30,7 @@ class CE_CodedWithEquivalents(Component_Model):
             "codeSystem"       : "",
             "codeSystemVersion": "",
             "displayName"      : "",
+            "codeSystemName"   : "",
             "originalText"     : ST_String.to_dict(),
             "translaction"     : CD_ConceptDescriptor.to_dict()
         }
