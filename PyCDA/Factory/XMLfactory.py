@@ -14,8 +14,12 @@ class XMLfactory:
 
     def dict_to_xml(self):
         """dict_to_xml"""
-        root = ET.Element(self.root_name)
-
+        attr_qname = ET.QName("http://www.w3.org/2001/XMLSchema-instance", "schemaLocation")
+        root = ET.Element(self.root_name, {attr_qname: 'urn:hl7-org:v3 CDA.xsd'},
+                          nsmap={None: 'urn:hl7-org:v3',
+                                 'sdtc': 'urn:hl7-org:sdtc',
+                                 'xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+                                 })
         self._dict_to_xml(root, self.data)
         ET.indent(root, space="\t", level=0)
         return ET.tostring(root, encoding='utf-8').decode()

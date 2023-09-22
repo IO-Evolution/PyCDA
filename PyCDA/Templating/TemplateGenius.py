@@ -39,12 +39,17 @@ class TemplateGenius:
             value = element[1]
             element = element[0].split(".")
             cursor = general_template
+            last_cursor = None
+            last_path = None
             for path in element:
-                try:
-                    if isinstance(cursor[path], dict):
-                        cursor = cursor[path]
-                    else:
-                        cursor[path] = value
-                except:
-                    cursor[path] = value
+                if path in cursor:
+                    last_cursor = cursor
+                    cursor = cursor[path]
+                    last_path = path
+                else:
+                    cursor[path] = {}
+                    last_cursor = cursor
+                    cursor = cursor[path]
+                    last_path = path
+            last_cursor[last_path] = value
         return general_template

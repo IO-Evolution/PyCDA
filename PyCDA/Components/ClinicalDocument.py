@@ -57,8 +57,8 @@ class ClinicalDocument(Component_Model):
         self.authorization = Element.Component(Authorization, "authorization", data)
         self.componentOf = Element.Component(Component1, "componentOf", data, as_list=False)
         self.component = Element.Component(Component2, "component", data, required=True, as_list=False)
-        self.classCode = Element.Attribute("classCode", data, fixed="DOCCLIN")
-        self.moodCode = Element.Attribute("moodCode", data, fixed="EVN")
+        # self.classCode = Element.Attribute("classCode", data, fixed="DOCCLIN")
+        # self.moodCode = Element.Attribute("moodCode", data, fixed="EVN")
 
     @classmethod
     def to_dict(cls):
@@ -91,8 +91,8 @@ class ClinicalDocument(Component_Model):
             "authorization": Authorization.to_dict(),
             "componentOf": Component1.to_dict(),
             "component": Component2.to_dict(),
-            "classCode": "DOCCLIN",
-            "moodCode": "EVN"
+            # "classCode": "DOCCLIN",
+            # "moodCode": "EVN"
         }
 
     @classmethod
@@ -113,7 +113,8 @@ class ClinicalDocument(Component_Model):
             "author": Author.to_dict_req(),
             "custodian": Custodian.to_dict_req(),
             "legalAuthenticator": LegalAuthenticator.to_dict_req(),
+            "componentOf": Component1.to_dict_req(),
             "component": Component2.to_dict_req(),
-            "classCode": "DOCCLIN",
-            "moodCode": "EVN"
+            # "classCode": "DOCCLIN",
+            # "moodCode": "EVN"
         }
