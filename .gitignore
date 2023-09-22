@@ -1,4 +1,4 @@
-.env/
+venv/
 __pycache__/
 gen.py
 data.json
@@ -6,7 +6,7 @@ json.txt
 output.xml
 gen/
 build/
-PyCDA.egg-info/
+PyClinicalDocumentArchitecture.egg-info/
 HL7DOC.pdf
 .idea/
 .idea/dataSources.xml

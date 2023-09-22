@@ -4,7 +4,9 @@ import sqlite3 as db
 class DBManager:
     def __init__(self):
         try:
-            self.connection = db.connect("PyCDA/Templating/dbs/CDA_TEMPLATES")
+            from pathlib import Path
+            # print(Path(__file__).resolve().parent.__str__()+"/dbs/CDA_TEMPLATES")
+            self.connection = db.connect(Path(__file__).resolve().parent.__str__()+"/dbs/CDA_TEMPLATES")
             self.cursor = self.connection.cursor()
         except db.Error as Error:
             raise Error
