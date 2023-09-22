@@ -36,7 +36,7 @@ class XMLfactory:
                     node.append(subnode)
                     self._dict_to_xml(subnode, value)
             elif key.startswith("__"):
-                node.set(key[2:], value)
+                node.set(key[2:], str(value))
             elif isinstance(value, list):
                 for el in value:
                     subnode = ET.Element(key)
