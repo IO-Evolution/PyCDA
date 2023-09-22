@@ -1,0 +1,372 @@
+{
+  "realmCode": {
+    "code": "IT"
+  },
+  "typeId": {
+    "root": "2.16.840.1.113883.1.3",
+    "extension": "[POCD_HDXXXXX]"
+  },
+  "templateId": {
+    "root": "2.16.840.1.113883.2.9.10.1.5",
+    "extension": "1.2"
+  },
+  "id": {
+    "root": "[OID_STRUTTURA_COMPETENZA]",
+    "extension": "[EXTENSION_ID]",
+    "assigningAuthorityName": "[NOME_STRUTTURA_COMPETENZA]"
+  },
+  "code": {
+    "code": "34105-7",
+    "codeSystem": "2.16.840.1.113883.6.1",
+    "codeSystemName": "LOINC",
+    "displayName": "Lettera di dimissione ospedaliera"
+  },
+  "effectiveTime": {
+    "value": "[YYYYMMDDHHMMSS+|-ZZZZ]"
+  },
+  "confidentialityCode": {
+    "code": "[V | N]",
+    "codeSystem": "2.16.840.1.113883.5.25",
+    "codeSystemName": "HL7 Confidentiality"
+  },
+  "languageCode": {
+    "code": "it-IT"
+  },
+  "setId": {
+    "root": "[OID_STRUTTURA_COMPETENZA]",
+    "extension": "[EXTENSION_ID]",
+    "assigningAuthorityName": "[NOME_STRUTTURA_COMPETENZA]"
+  },
+  "versionNumber": {
+    "value": "1"
+  },
+  "recordTarget": {
+    "patientRole": {
+      "id": {
+        "root": "2.16.840.1.113883.2.9.4.3.2",
+        "extension": "[CODICE_FISCALE_PAZIENTE]",
+        "assigningAuthorityName": "Ministero Economia e Finanze"
+      },
+      "patient": {
+        "name": {
+          "given": {
+            "text": "[NOME_PAZIENTE]"
+          },
+          "family": {
+            "text": "[COGNOME_PAZIENTE]"
+          }
+        },
+        "administrativeGenderCode": {
+          "code": "[SESSO_PAZIENTE]",
+          "codeSystem": "2.16.840.1.113883.5.1",
+          "codeSystemName": "HL7 AdministrativeGender"
+        },
+        "birthTime": {
+          "value": "[DATA_NASCITA_PAZIENTE]"
+        },
+        "classCode": "PSN",
+        "determinerCode": "INSTANCE"
+      },
+      "classCode": "PAT"
+    },
+    "typeCode": "RCT",
+    "contextControlCode": "OP"
+  },
+  "author": {
+    "time": {
+      "value": "[YYYYMMddhhmmss]"
+    },
+    "assignedAuthor": {
+      "id": {
+        "root": "2.16.840.1.113883.2.9.4.3.2",
+        "assigningAuthorityName": "MEF",
+        "extension": "[CF_AUTORE_DOCUMENTO]"
+      },
+      "assignedPerson": {
+        "name": {
+          "given": {
+            "text": "[NOME_AUTORE]"
+          },
+          "family": {
+            "text": "[COGNOME_AUTORE]"
+          }
+        },
+        "classCode": "PSN",
+        "determinerCode": "INSTANCE"
+      },
+      "telecom": [
+        {
+          "value": "[CONTATTO_AUTORE]",
+          "use": "[HP | ...]"
+        },
+        {
+          "value": "[CONTATTO_AUTORE]",
+          "use": "[HP | ...]"
+        },
+        {
+          "value": "[CONTATTO_AUTORE]",
+          "use": "[HP | ...]"
+        }
+      ],
+      "classCode": "ASSIGNED"
+    },
+    "contectControlCode": "OP",
+    "typeCode": "AUT"
+  },
+  "custodian": {
+    "assignedCustodian": {
+      "representedCustodianOrganization": {
+        "id": {
+          "root": "2.16.840.1.113883.2.9.4.1.2",
+          "assigningAuthorityName": "Ministero della Salute",
+          "extension": "[COD_STRUTTURA]"
+        },
+        "name": {
+          "text": "[NOME_STRUTTURA]"
+        },
+        "classCode": "ORG",
+        "determinerCode": "INSTANCE"
+      },
+      "classCode": "ASSIGNED"
+    },
+    "typeCode": "CST"
+  },
+  "legalAuthenticator": {
+    "time": {
+      "value": "[YYYYMMDDHHMMSS+ZZZZ]"
+    },
+    "signatureCode": {
+      "code": "S"
+    },
+    "assignedEntity": {
+      "id": {
+        "root": "2.16.840.1.113883.2.9.4.3.2",
+        "assigningAuthorityName": "MEF",
+        "extension": "[CF_FIRMATARIO]"
+      },
+      "assignedPerson": {
+        "name": {
+          "given": {
+            "text": "[NOME_FIRMATARIO]"
+          },
+          "family": {
+            "text": "[CONGOME_FIMRATARIO]"
+          }
+        },
+        "classCode": "PSN",
+        "determinerCode": "INSTANCE"
+      },
+      "representedOrganization": {
+        "name": {
+          "text": "[NOME_ORGANIZZAZIONE]"
+        },
+        "classCode": "ORG",
+        "determinerCode": "INSTANCE"
+      },
+      "classCode": "ASSIGNED"
+    },
+    "contextControlCode": "OP",
+    "typeCode": "LA"
+  },
+  "componentOf": {
+    "encompassingEncounter": {
+      "effectiveTime": {
+        "low": {
+          "value": "[YYYYMMDDHHMMSS+|-ZZZZ]"
+        },
+        "high": {
+          "value": "[YYYYMMDDHHMMSS+|-ZZZZ]"
+        }
+      },
+      "classCode": "ENC",
+      "moodCode": "EVN",
+      "id": {
+        "root": "2.16.840.1.113883.2.9.2.[RAMO:AZIENDALE.NOSOLOGICI].4.6",
+        "extension": "[NUMERO_NOSOLOGICO]",
+        "assigningAuthorityName": "[NOME_AZIENDA]"
+      },
+      "location": {
+        "healthCareFacility": {
+          "serviceProviderOrganization": {
+            "id": {
+              "root": "2.16.840.1.113883.2.9.4.1.2",
+              "extension": "[CODICE_PRESIDIO]"
+            },
+            "asOrganizationPartOf": {
+              "id": {
+                "root": "2.16.840.1.113883.2.9.4.1.1",
+                "extension": "[CODICE_AZIENDA_SANITARIA]"
+              }
+            }
+          }
+        }
+      }
+    },
+    "typeCode": "COMP"
+  },
+  "component": {
+    "structuredBody": {
+      "component": [
+        {
+          "contextConductionInd": "true",
+          "section": {
+            "classCode": "DOCSECT",
+            "code": {
+              "code": "46241-6",
+              "codeSystem": "2.16.840.1.113883.6.1",
+              "displayName": "Diagnosi di Accettazione"
+            },
+            "text": {
+              "text": "[TEXT]"
+            },
+            "moodCode": "EVN",
+            "title": {
+              "text": "Motivo del Ricovero"
+            }
+          },
+          "typeCode": "COMP"
+        },
+        {
+          "contextConductionInd": "true",
+          "section": {
+            "classCode": "DOCSECT",
+            "code": {
+              "code": "47039-3",
+              "codeSystem": "2.16.840.1.113883.6.1",
+              "displayName": "Ricovero Ospedaliero, anamnesi ed esame obiettivo"
+            },
+            "text": {
+              "text": "[TEXT]"
+            },
+            "moodCode": "EVN",
+            "title": {
+              "text": "Inquadramento Clinico Iniziale"
+            }
+          },
+          "typeCode": "COMP"
+        },
+        {
+          "contextConductionInd": "true",
+          "section": {
+            "classCode": "DOCSECT",
+            "code": {
+              "code": "8648-8",
+              "codeSystem": "2.16.840.1.113883.6.1",
+              "displayName": "Decorso ospedaliero"
+            },
+            "text": {
+              "text": "[TEXT]"
+            },
+            "moodCode": "EVN",
+            "title": {
+              "text": "Decorso Ospedaliero"
+            }
+          },
+          "typeCode": "COMP"
+        },
+        {
+          "contextConductionInd": "true",
+          "section": {
+            "classCode": "DOCSECT",
+            "code": {
+              "code": "30954-2",
+              "codeSystem": "2.16.840.1.113883.6.1",
+              "displayName": "Esami diagnostici e/o di laboratorio significativi"
+            },
+            "text": {
+              "text": "[TEXT]"
+            },
+            "moodCode": "EVN",
+            "title": {
+              "text": "Esami eseguiti durante il ricovero"
+            }
+          },
+          "typeCode": "COMP"
+        },
+        {
+          "contextConductionInd": "true",
+          "section": {
+            "classCode": "DOCSECT",
+            "code": {
+              "code": "48765-2",
+              "codeSystem": "2.16.840.1.113883.6.1",
+              "displayName": "ALLERGIE E/O REAZIONI AVVERSE"
+            },
+            "text": {
+              "text": "[TEXT]"
+            },
+            "moodCode": "EVN",
+            "title": {
+              "text": "Allergie"
+            }
+          },
+          "typeCode": "COMP"
+        },
+        {
+          "contextConductionInd": "true",
+          "section": {
+            "classCode": "DOCSECT",
+            "code": {
+              "code": "11535-2",
+              "codeSystem": "2.16.840.1.113883.6.1",
+              "displayName": "Diagnosi di Dimissione"
+            },
+            "text": {
+              "text": "[TEXT]"
+            },
+            "moodCode": "EVN",
+            "title": {
+              "text": "[TEXT]"
+            }
+          },
+          "typeCode": "COMP"
+        },
+        {
+          "contextConductionInd": "true",
+          "section": {
+            "classCode": "DOCSECT",
+            "code": {
+              "code": "10183-2",
+              "codeSystem": "2.16.840.1.113883.6.1",
+              "displayName": "Terapia farmacologica alla dimissione"
+            },
+            "text": {
+              "text": "[TEXT]"
+            },
+            "moodCode": "EVN",
+            "title": {
+              "text": "Terapia farmacologica alla dimissione"
+            }
+          },
+          "typeCode": "COMP"
+        },
+        {
+          "contextConductionInd": "true",
+          "section": {
+            "classCode": "DOCSECT",
+            "code": {
+              "code": "18776-5",
+              "codeSystem": "2.16.840.1.113883.6.1",
+              "displayName": "Piano di Cura"
+            },
+            "text": {
+              "text": "[TEXT]"
+            },
+            "moodCode": "EVN",
+            "title": {
+              "text": "Istruzioni di follow-up"
+            }
+          },
+          "typeCode": "COMP"
+        }
+      ],
+      "classCode": "DOCBODY",
+      "moodCode": "EVN"
+    },
+    "contextConductionInd": "true",
+    "typeCode": "COMP"
+  },
+  "title": {
+    "text": "LETTERA DI DIMISSIONE OSPEDALIERA"
+  }
+}
