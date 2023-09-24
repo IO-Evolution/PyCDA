@@ -16,7 +16,6 @@ class Section(Component_Model):
     """Section"""
 
     def __init__(self, name: str, data: dict):
-        print(data)
         self.name = name
         self.realmCode = Element.Component(CS_CodedSimpleValue, "realmCode", data)
         self.typeId = Element.Component(InfrastructureRootTypeId, "typeId", data, as_list=False)

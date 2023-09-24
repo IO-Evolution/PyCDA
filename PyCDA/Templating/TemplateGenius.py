@@ -21,7 +21,6 @@ class TemplateGenius:
 
     def fetch_static_data(self, doc_type: DOC_TYPE) -> list:
         query = f"SELECT PATH, VALUE FROM STATIC_DATA WHERE DOC_TYPE={doc_type.value}"
-        print(query)
         return self.db.fetch(query)
 
     def _rectify(self, data: dict, path: str):

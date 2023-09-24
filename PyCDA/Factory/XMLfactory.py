@@ -22,11 +22,10 @@ class XMLfactory:
                                  })
         self._dict_to_xml(root, self.data)
         ET.indent(root, space="\t", level=0)
-        return ET.tostring(root, encoding='unicode').replace("&lt;", "<").replace("&gt;", ">")
+        return ET.tostring(root, encoding='unicode')
 
     def _dict_to_xml(self, node, data: dict):
         for key, value in data.items():
-            print(key, value)
             if isinstance(value, dict):
                 if "_text" in value and len(value) == 1:
                     subnode = ET.SubElement(node, key)

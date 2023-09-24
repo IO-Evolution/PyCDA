@@ -16,9 +16,9 @@ def readme():
         return f.read()
 
 
-setup(name='PyClinicalDocumentArchitecture',
+setup(name='PyCDA',
       version='0.1.5',
-      description='Python implementation CDA',
+      description='Python implementation of CDA',
       long_description=readme(),
       classifiers=[
 
@@ -30,12 +30,12 @@ setup(name='PyClinicalDocumentArchitecture',
       license='Proprietary',
       packages=find_packages(),
       install_requires=install_requires,
-      package_data={'PyClinicalDocumentArchitecture.Templating': ['dbs/CDA_TEMPLATES']},
+      package_data={'PyCDA.Templating': ['dbs/CDA_TEMPLATES']},
       include_package_data=True,
       zip_safe=False,
       test_suite='nose.collector',
       tests_require=['nose'],
       entry_points={
-          'console_scripts': ['PyClinicalDocumentArchitecture=PyClinicalDocumentArchitecture.run:run'],
+          'console_scripts': ['PyCDA=PyCDA.run:run'],
       }
       )
