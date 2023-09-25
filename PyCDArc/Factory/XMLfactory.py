@@ -22,7 +22,8 @@ class XMLfactory:
                                  })
         self._dict_to_xml(root, self.data)
         ET.indent(root, space="\t", level=0)
-        return ET.tostring(root, encoding='unicode')
+        # return ET.tostring(root, encoding='unicode').replace("&gt;", ">").replace("&lt;", "<").replace("&amp;", "&")
+        return ET.tostring(root, encoding='unicode').replace("&gt;", ">").replace("&lt;", "<").replace("<br>", "<br/>")
 
     def _dict_to_xml(self, node, data: dict):
         for key, value in data.items():

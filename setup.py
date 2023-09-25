@@ -16,7 +16,7 @@ def readme():
         return f.read()
 
 
-setup(name='PyCDA',
+setup(name='PyCDArc',
       version='0.1.5',
       description='Python implementation of CDA',
       long_description=readme(),
@@ -26,19 +26,19 @@ setup(name='PyCDA',
           'Topic :: Software Development :: Build Tools',
           'Programming Language :: Python :: 3.10',  # Specify which pyhton versions that you want to support
       ],
-      keywords='',
-      url='',
+      keywords=['CDA', 'ClinicalDocumentArchitecture', 'Health'],
+      url='https://github.com/EliaMenoni/PyCDA',
       author='Elia Menoni',
       author_email='eliamenoni@emenoni.eu',
       license='Proprietary',
       packages=find_packages(),
       install_requires=install_requires,
-      package_data={'PyCDA.Templating': ['dbs/CDA_TEMPLATES']},
+      package_data={'PyCDArc.Templating': ['dbs/CDA_TEMPLATES']},
       include_package_data=True,
       zip_safe=False,
       test_suite='nose.collector',
       tests_require=['nose'],
       entry_points={
-          'console_scripts': ['PyCDA=PyCDA.run:run'],
+          'console_scripts': ['PyCDArc=PyCDArc.run:run'],
       }
       )
