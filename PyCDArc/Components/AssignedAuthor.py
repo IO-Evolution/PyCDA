@@ -22,7 +22,7 @@ class AssignedAuthor(Component_Model):
         self.id = Element.Component(II_InstanceIdentifier, "id", data, required=True)
         self.code = Element.Component(CE_CodedWithEquivalents, "code", data, as_list=False)
         self.addr = Element.Component(AD_PostalAddress, "addr", data)
-        self.telecom = Element.Component(TEL_TelecomincationAddress, "telecom", data)
+        self.telecom = Element.Component(TEL_TelecomincationAddress, "telecom", data, required=True, nullFlavored=True)
         self.assignedPerson = Element.Component(Person, "assignedPerson", data, as_list=False)
         self.assignedAuthoringDevice = Element.Component(AuthoringDevice, "assignedAuthoringDevice", data, as_list=False)
         self.representedOrganization = Element.Component(Organization, "representedOrganization", data, as_list=False)

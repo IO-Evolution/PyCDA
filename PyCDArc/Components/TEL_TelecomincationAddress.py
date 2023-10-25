@@ -1,7 +1,7 @@
 from .IVL_TS_IntervalOfTime import IVL_TS_IntervalOfTime
 from ..Core import Elements as Element
 from ..Core.Component_Model import Component_Model
-from ..Core.Exceptions import InvalidGivenValue
+from ..Core.Exceptions import InvalidGivenValue, InvalidNullFlavor
 
 
 class TEL_TelecomincationAddress(Component_Model):
@@ -12,9 +12,16 @@ class TEL_TelecomincationAddress(Component_Model):
             raise InvalidGivenValue("Empty Data Set")
 
         self.name = name
-        self.value = Element.Attribute("value", data, required=True)
-        self.use = Element.Attribute("use", data)
+        self.value = Element.Attribute("value", data, required=True, nullable=True)
+        self.use = Element.Attribute("use", data, nullable=True)
         self.useablePeriod = Element.Component(IVL_TS_IntervalOfTime, "useablePeriod", data, as_list=False)
+
+        self.nullFlavor = Element.Attribute("nullFlavor", data)
+        self.check_null_flavor()
+
+    def check_null_flavor(self):
+        if self.value is not None:
+            self.nullFlavor = None
 
     @classmethod
     def to_dict(cls):
@@ -22,7 +29,8 @@ class TEL_TelecomincationAddress(Component_Model):
         return {
             "value": "",
             "use": "",
-            "useablePeriod": IVL_TS_IntervalOfTime.to_dict()
+            "useablePeriod": IVL_TS_IntervalOfTime.to_dict(),
+            "nullFlavor": ""
         }
 
     @classmethod

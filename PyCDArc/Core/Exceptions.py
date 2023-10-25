@@ -1,5 +1,11 @@
 """ Exception Module For CDA """
 
+class InvalidNullFlavor(Exception):
+    """ One or more given value is invalid """
+
+    def __init__(self, message):
+        # Call the base class constructor with the parameters it needs
+        super().__init__(message)
 
 class InvalidGivenValue(Exception):
     """ One or more given value is invalid """
